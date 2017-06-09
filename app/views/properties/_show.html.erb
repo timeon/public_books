@@ -1,0 +1,28 @@
+<div class="well">
+  <dl class="dl-horizontal">
+
+  <% if defined? programmer? and programmer? %>    
+    <dt><em>Id</em></dt>
+    <dd><em><%= property.id %></em></dd>
+    
+    <dt><em>XML</em></dt>
+    <dd><em><%= link_to "properties/#{property.id}.xml",  property_path(property, :format => "xml") -%></em></dd>
+
+    <dt><em>JSON</em></dt>
+    <dd><em><%= link_to "properties/#{property.id}.json", property_path(property, :format => "json") -%></em></dd>
+  <% end -%>
+        
+  
+    <dt>Resource</dt>
+    <dd><%= property.resource -%></dd>
+  
+    <dt>Name</dt>
+    <dd><%= property.name -%></dd>
+  
+    <dt>Value</dt>
+    <dd><%= property.value -%></dd>
+  
+
+  </dl>
+</div>
+

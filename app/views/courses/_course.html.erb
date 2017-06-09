@@ -1,0 +1,27 @@
+  <tr>
+    <td class="course_name"><b><%= link_to course, course %></b></td>
+
+    <td class="course_category"><%= course.category %></td>
+    <td class="course_medium"><%= course.medium %></td>
+    <td class="course_format"><%= course.format %></td>
+    <td class="course_author"><%= course.author %></td>
+    <td class="course_name"><%= course.name %></td>
+    <td class="course_description"><%= course.description %></td>
+    <td class="course_image"><%= course.image %></td>
+
+    <td>    
+      <%= link_to edit_course_path(course), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+
+      <%= link_to crawl_course_path(course), :class => 'crawl_button', :title => "crawl" do %>
+       <i class="fa fa-refresh fa-lg"></i>
+      <% end %>
+
+    </td>
+  </tr>
+

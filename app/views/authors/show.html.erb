@@ -1,0 +1,4 @@
+
+<%= render partial: '/authors/show', locals: {author: @author} %>
+
+<%= render partial: '/courses/list', locals:{courses:@author.courses, as:'course', owner:@author, show_when_empty:true, show_pages:true} %> 

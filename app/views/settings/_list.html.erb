@@ -1,0 +1,51 @@
+<% if show_when_empty or settings.size > 0 %>
+	<% new_setting = Setting.new %>
+
+	<div class="row rrow section-header">
+  <% if false %>
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+  <% end %>
+  
+	  <div class="span0">
+	    <h3><%= render partial: '/settings/new_modal', locals:{setting:new_setting, owner:owner, as:as} %></h3>
+	  </div>
+
+	<% if defined? programmer? and programmer? %>    
+	  <div class="span0">
+	      <h3><em><%= link_to settings_path(:format => "xml"), :class => 'btn btn-default' do %> settings.xml<% end %></em></h3>
+	  </div>
+
+	  <div class="span0">
+	      <h3><em><%= link_to settings_path(:format => "json"), :class => 'btn btn-default' do %> settings.json<% end %></em></h3>
+	  </div>
+	<% end %>
+  
+	</div>
+
+	<% if settings.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate settings %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped ">
+	    <%= render partial: '/settings/header' %>
+    
+	    <tbody>
+	      <% settings.each do |setting| %>
+	        <%= render partial: '/settings/row', locals: {setting: setting} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_setting_path, :class => 'btn btn-default' do %>
+	    <span class="icon icon-plus"></span>
+	    Add Setting
+	  <% end %>
+	<% end %>  
+
+<% end %>  

@@ -1,0 +1,25 @@
+<%= render partial:  '/lessons/list', 
+            locals:   { lessons:    @lessons, 
+                        as:              'lesson', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<% if false %>
+
+<%= render partial:  '/lessons/table', 
+            locals:   { lessons:    @lessons, 
+                        as:              'lesson', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%= render partial: '/lessons/deck', collection: @lessons, as: :lesson %>
+<% end %>

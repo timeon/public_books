@@ -1,0 +1,153 @@
+<% adult    = family.people.where(relation: 'self').first %>
+<% spouse   = family.people.where(relation: 'spouse').first %>
+<% adults   = family.people.where(relation: ['self', 'spouse']) %>
+<% children = family.people.where(relation: 'child') %>
+
+<tbody style="page-break-inside: avoid;">
+
+  <tr>
+    <td style="padding:0px">    
+        <b>
+          <%= adult.try(:chinese_name) %>
+          <% if spouse %>
+            <%= ", #{spouse.chinese_name}" %>
+          <% end %>  
+        </b>  
+    </td>
+    
+    <td style="padding:0px">
+          <b><%= number_to_phone(family.number, :area_code => true) %></b>  
+    </td>
+
+
+    <td rowspan="4" style="padding-left:10px;padding-top:0px;vertical-align:top">    
+      <%= link_to image_tag(root_url + family.photo.url(:medium), height:120, style:"padding:0px;margin:0px"),  root_url + family.photo.url %>
+    </td>    
+
+    <% if !@print %>
+      <td rowspan="4" style="padding-left:10px;padding-top:0px;vertical-align:top" >    
+        <%= button_to edit_family_url(family, key:family.key),  class:"ui-btn", method: :get do %>
+          <i class="fa fa-pencil fa-lg"></i> 更新信息
+        <% end %>
+
+        <%= button_to upload_family_url(family, key:family.key), method: :get do %>
+          <i class="fa fa-upload fa-lg"></i> 上载照片
+        <% end %>
+
+        <% if family.verified %>
+          <i class="fa fa-check fa-lg"></i> 已经确认 <%= family.verified_at.try(:to_date)%><br>
+        <% else %>
+          <%= button_to verify_family_url(family, key:family.key), method: :get do %>
+              <i class="fa fa-check fa-lg"></i> 信息正确
+          <% end %>
+        <% end  %>
+        
+        <% if @admin %>
+          <%= link_to check_family_url(family, key:family.key), :title => "send mail for checking" do %>
+            <% if family.sent %>
+              <i class="fa fa-envelope fa-lg"></i>
+            <% else %>  
+              <i style="color:lightgray" class="fa fa-envelope fa-lg"></i>
+            <% end %>
+            邮件通知
+          <% end %>
+          <%= family.sent_at.try(:to_date)%>
+          <br>
+
+          <a href="<%= family_url(family, key:family.key)%>" class="" data-transition="pop">
+            <i class="fa fa-eye fa-lg"></i>
+          </a>     
+
+          <a href="<%= reset_family_url(family, key:family.key)%>" class="" data-transition="pop">
+            <i class="fa fa-undo fa-lg"></i>
+          </a>     
+
+          <%= link_to delete_family_url(family, key:family.key), :method => :delete, :data => { confirm: 'Are you sure?' } , :class => 'delete_family', :title=>"Delete" do %>
+            <i class="fa fa-trash fa-lg"></i>
+          <% end %>
+
+          <br><br>
+
+          <% if family.disabled %>
+            <span class="family_disabled"><b>Disabled</b></span><br>
+          <% end %>
+
+          <% if family.one_more_year %>
+            <span class="family_one_more_year"><b>One more year</b></span><br>
+          <% end %>
+
+          <% if !family.note.blank? %>
+            <span class="family_note"><%= family.note %></span><br>
+          <% end %>
+        <% end %>
+      </td>    
+    <% end %>
+    
+  </tr>
+
+
+  <tr style="border:0px">
+    <td colspan="2" style="padding:0px">
+      <%= adult.try(:last_name).try(:upcase) %>, <%= adult.try(:first_name) %>
+      <% if spouse %>
+        & <%= spouse.first_name %> <%= spouse.last_name != adult.last_name ? spouse.last_name.upcase : '' %>
+      <% end %>  
+      <br>
+
+      <i>
+        <% children.each do |person| %>
+          <%= person.first_name %>
+          <%= person.last_name != adult.try(:last_name) ? person.last_name : '' %>
+          <%= person == children.last ? '' : ',' %>
+        <% end %>
+        <br>
+
+        <% others = family.people.where.not(relation: ['self', 'spouse', 'child']) %>
+        <% others.each do |person| %>
+          <%= person.first_name %> <%= person.last_name %> <%= person.chinese_name %>
+          (<%= person.relation %>)
+          <%= person == others.last ? '' : ',' %>
+        <% end %>
+        <% if others.any? %>
+            <br>
+        <% end %>
+      </i>
+      <%= family.street %><br>
+      <%= family.city %>, <%= family.state %> <%= family.zip%>
+    </td>  
+  </tr>
+
+
+  <% adults.each do |person| %>
+    <tr id="adult-contact">
+      <% if !person.phone.blank? %>
+        <td id="adult-email" style="padding:0px; font-size: <%=person.email_font_size%>em" >
+          <%= person.email %>
+        </td>
+
+        <td id="adult-phone" style="padding:0px">
+            <%= person.phone.length <= 10 ? number_to_phone(person.phone, :area_code => true) : person.phone%>
+            <% if person.phone_ext %>
+              x <%= person.phone_ext %>
+            <% end %>  
+        </td>
+      <% else %>  
+        <td id="adult-email-no-phone" colspan="2" style="padding:0px">
+          <%= person.email %> <% if person != adults[0] %> &nbsp;<%end%>
+        </td>
+      <% end %>  
+    </tr>
+  <% end %>
+
+  <% if adults.count == 1 %>
+    <tr id="empty-second-adault">
+      <td colspan="2">&nbsp;</td>
+    </tr>
+  <% end %>
+
+  <tr id="family-spacer" style="page-break-after:always;" class="page-break">
+    <td colspan="4">&nbsp;<!-- pagebreak --></td>
+  </tr>
+  <p><!-- pagebreak --></p> 
+
+</tbody>

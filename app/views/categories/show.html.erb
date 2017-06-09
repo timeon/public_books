@@ -1,0 +1,4 @@
+<%= render partial: '/categories/show', locals: {category: @category} %>
+
+<%= render partial: '/courses/list', locals:{courses:@category.courses, as:'course', owner:@category, show_when_empty:true, show_pages:true} %> 
+

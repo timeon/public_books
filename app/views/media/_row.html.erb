@@ -1,0 +1,27 @@
+  <tr>
+    <td class="medium_name"><b><%= link_to medium, medium %></b></td>
+
+    <td class="medium_name"><%= medium.name %></td>
+    <td class="medium_icon"><%= medium.icon %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to medium, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/media/preview_modal', locals: {medium: medium} %>
+
+      <%= render partial: '/media/edit_modal', locals: {medium: medium} %>
+    <% end %>
+  
+      <%= link_to edit_medium_path(medium, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to medium, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

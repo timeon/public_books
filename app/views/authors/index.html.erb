@@ -1,0 +1,25 @@
+<%= render partial:  '/authors/list', 
+            locals:   { authors:    @authors, 
+                        as:              'author', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<% if false %>
+
+<%= render partial:  '/authors/table', 
+            locals:   { authors:    @authors, 
+                        as:              'author', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%= render partial: '/authors/deck', collection: @authors, as: :author %>
+<% end %>

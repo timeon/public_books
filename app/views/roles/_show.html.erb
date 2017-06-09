@@ -1,0 +1,20 @@
+<div class="well">
+  <dl class="dl-horizontal">
+  <% if defined? programmer? and programmer? %>    
+    <dt><em>Id</em></dt>
+    <dd><em><%= role.id %></em></dd>
+    
+    <dt><em>XML</em></dt>
+    <dd><em><%= link_to "roles/#{role.id}.xml",  role_path(role, :format => "xml") -%></em></dd>
+
+    <dt><em>JSON</em></dt>
+    <dd><em><%= link_to "roles/#{role.id}.json",              role_path(role, :format => "json") -%></em></dd>
+  <% end -%>    
+      <dt>Name:</dt>
+    <dd><%= role.name -%></dd>
+      <dt>Resource:</dt>
+    <dd><%= role.resource -%></dd>
+  
+  </dl>
+</div>
+

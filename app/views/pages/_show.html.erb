@@ -1,0 +1,26 @@
+<div class="well">
+  <dl class="dl-horizontal">
+  <% if defined? programmer? and programmer? %>    
+    <dt><em>Id</em></dt>
+    <dd><em><%= page.id %></em></dd>
+    
+    <dt><em>XML</em></dt>
+    <dd><em><%= link_to "pages/#{page.id}.xml",  page_path(page, :format => "xml") -%></em></dd>
+
+    <dt><em>JSON</em></dt>
+    <dd><em><%= link_to "pages/#{page.id}.json",              page_path(page, :format => "json") -%></em></dd>
+  <% end -%>    
+      <dt>Name:</dt>
+    <dd><%= page.name -%></dd>
+      <dt>Content:</dt>
+    <dd><%= page.content -%></dd>
+      <dt>Position:</dt>
+    <dd><%= page.position -%></dd>
+      <dt>Order:</dt>
+    <dd><%= page.order -%></dd>
+      <dt>Visible:</dt>
+    <dd><%= page.visible -%></dd>
+  
+  </dl>
+</div>
+

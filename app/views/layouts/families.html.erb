@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="<%= @description || "中区通信录 " %>" />
+    
+    <title><%= @title || "中区通信录 " %></title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/js/jquerymobile.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    
+    <%= csrf_meta_tags %>
+    
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+-->    
+    <link rel="stylesheet" href="/css/jqm-demos.css">
+    <%= stylesheet_link_tag  "application" %>
+
+<!--    
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag  "application", media: "all", cache: false, "data-turbolinks-track" => false %>
+    <%= javascript_include_tag "application", cache: false, "data-turbolinks-track" => false %>
+-->    
+
+  <style>
+    <% if @print == '1' %>
+      body { font-size: 0.8em; }
+    <% end %>
+
+    table, tr, td {border-color:white;padding:0px;border:0px;margin:0px;}
+    .page-break {page-break-after: always;}
+
+    @page {
+          margin-top: 149px;
+          margin-left: 2px;
+          margin-bottom: 40px;
+          margin-right: 2px;
+          size: landscape;
+          counter-increment: page;
+
+         @bottom-right {
+            padding-right:20px;
+            content: "Page " counter(page);
+          }
+
+        }
+
+        .incrementClass:before {
+           counter-increment: page;
+        }
+
+  </style>
+
+
+  </head>
+  
+  <body>
+    <div data-role="page" class="jqm-demos jqm-home">
+
+      <div data-role="header" class="jqm-header">
+        <h2>
+            <%= link_to image_tag("/central-directory-32.png", alt: "中区通信录 "), families_url %> 
+        </h2>
+      </div><!-- /header -->
+
+
+      <div role="main" class="ui-content jqm-content" style="float:left">
+
+        <% if flash[:notice] %>
+          <div id="ui-bar-test" class="ui-bar ui-bar-a ui-corner-all" style="margin-bottom:1em; color:green">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>  
+
+        <% if flash[:error] %>
+          <div id="ui-bar-test" class="ui-bar ui-bar-a ui-corner-all" style="margin-bottom:1em; color:red">
+            <%= flash[:error] %>
+          </div>
+        <% end %>  
+
+        <%= yield %>
+      </div><!-- /content -->
+
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+        <p>中区通信录 &copy; Copyright 2014-<%=Date.today.year%> </p>
+      </div><!-- /footer -->
+
+
+    </div><!-- /page -->
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-24495109-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+
+    <script type="text/javascript">
+      var msg_title = "<%= @title %>";
+      var msg_desc = "<%= @description %>";
+    </script>
+  
+
+  </body>
+</html>

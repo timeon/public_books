@@ -1,0 +1,56 @@
+<!-- https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/_form.html.erb -->
+
+<div class="well ui-field-contain">
+  <%= simple_form_for family, :html => {:class => 'form-horizontal', :multipart => true, :wrapper_html => { 'class' => 'ui-field-contain' }, "data-ajax" => false} do |f| %>
+
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= hidden_field_tag(:key, f.object.key) %>
+
+      <div data-role="collapsible">
+      </div>    
+          <h4>Family info</h4>
+          <%= f.input :street %>
+          <%= f.input :city %>
+          <%= f.input :state %>
+          <%= f.input :zip %>
+          <%= f.input :country %>
+          <%= f.input :phone %>
+          <%= f.input :photo %>
+
+
+      <%= f.fields_for :people do |builder| %> 
+        <%= render "people_fields", :f => builder %>
+      <% end %>
+
+      <%= f.input :verified %>
+
+      <br><br>
+      <% if admin? %>
+      <i>admin only</i>
+        <%= f.association :user %>
+        <%= f.input :disabled %>
+        <%= f.input :sent %>
+        <%= f.input :one_more_year %>
+        <%= f.input :note %>
+      <% end %>
+    
+    </div>
+  
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+        <i class="fa fa-check"></i> Save
+      <% end %>
+      
+
+      <%= link_to :back, :class => 'btn btn-default' do %>
+        <span class="fa fa-chevron-left"></span>
+        Back
+      <% end %>
+      
+    </div>
+    
+  <% end %>
+</div> 
+  

@@ -1,0 +1,34 @@
+<tr>
+<% if defined? programmer? and programmer? %>    
+    <td><em><%= role.id %></em></td>
+    <td><em><%= link_to "roles/#{role.id}.xml",  role_path(role, :format => "xml" ) %></em></td>
+    <td><em><%= link_to "roles/#{role.id}.json", role_path(role, :format => "json") %></em></td>
+<% end %>
+
+  
+    <td><%= link_to role.name, role %></td>
+    
+    <td><%= link_to role.resource, role.resource %></td>
+  
+    <td>    
+      <%= render partial: '/roles/preview_modal', locals: {role: role} %>
+
+      <%= link_to role, :class => 'btn btn-default' do %>
+        <span class="icon icon-info-sign"></span>
+        Details
+      <% end %>
+  
+      <%= render partial: '/roles/edit_modal', locals: {role: role} %>
+
+       <%= link_to edit_role_path(role, ref:request.path), :class => 'btn btn-default' do %>
+        <span class="icon icon-edit"></span>
+        Edit
+      <% end %>
+  
+      <%= link_to role, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-default' do %>
+        <span class="icon icon-remove"></span>
+        Delete
+      <% end %>
+    </td>
+</tr>
+

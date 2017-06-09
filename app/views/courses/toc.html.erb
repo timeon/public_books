@@ -1,0 +1,11 @@
+<h1> 
+  <%= @course.name.t session[:locale] -%> 
+
+  <% if @course.author %>
+    | <%= !@course.author.blank? ? @course.author.name.t(session[:locale]) + "  著" : ""%> <br><br>
+  <% end %>  
+
+</h1>
+
+
+<%= render partial: '/lessons/list', locals:{lessons:@lessons, as:'lesson', owner:@course, show_when_empty:true, show_pages:true, show_title:false, show_new:false} %> 

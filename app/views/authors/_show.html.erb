@@ -1,0 +1,21 @@
+<div class="">
+  
+    <h1>
+      <%= author.name -%>
+      <%= author.english_name -%>
+      <% if admin? %>
+        <%= link_to edit_author_path(@author, ref:request.path), :class => 'edit_button' do %>
+          <span class="fa fa-pencil fa-sm"></span>
+        <% end %>
+      <% end %>
+    </h1>
+
+    <p><%== author.description -%></p>
+  
+    <% if !author.photo.blank? %>
+      <%= link_to image_tag(author.photo.url(:thumb)), author.photo.url -%>
+    <% end %>
+
+</div>
+
+

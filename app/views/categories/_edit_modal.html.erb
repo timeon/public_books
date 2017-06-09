@@ -1,0 +1,23 @@
+<!-- Button trigger modal -->
+<button class="btn btn-default btn-lg" data-toggle="modal" data-target="#edit_category_<%= category.id %>" title="edit">
+    <span class="icon icon-pencil"></span>
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="edit_category_<%= category.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Edit category</h4>
+      </div>
+      <div class="modal-body">
+        <%= render partial: '/categories/form', locals: {category: category} %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

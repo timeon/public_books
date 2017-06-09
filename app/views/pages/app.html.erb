@@ -1,0 +1,70 @@
+<div class="wells">
+  <h1>什么是万维助手？</h1>
+  <span style="font-size: 24px">
+        北京万维星辰科技有限公司（简称“万维星辰”）是中国领先的移动互联网安全产品及服务提供商，与相关权威机构合作，专注于移动终端和移动互联网发展的最新技术，为国家大型企事业团体和机构提供端到端的安全解决方案和服务。
+  </span> <br> <br>       
+  <span style="font-size: 24px">
+        万维星辰移动应用管理和安全助手软件（“万维助手”）由万维星辰自主开发，针对企业向终端用户发布的移动应用提出的管理和安全保护方案。
+  </span>        
+</div>
+<br>
+
+<div class="wells">
+  <h1>为何需要安装万维助手？</h1>
+  <span style="font-size: 24px">
+         面对移动互联网时代恶意软件、钓鱼欺诈、隐私泄露等多元化的安全威胁，万维助手采用一整套安全技术和策略，快速识别虚假恶意软件，保障用户放心使用经权威机构认证审核的合法应用。
+  </span> <br> <br>       
+  <span style="font-size: 24px">
+    万维助手可以保护您已安装的合法软件和应用环境不被恶意破坏，保护您的个人信息不会在应用使用过程中泄露，保护您的财产损失。
+  </span>        
+  <span style="font-size: 24px">
+        万维助手还为您提供集中权威的应用下载和管理平台，为您提供及时发布信息，推荐与应用相关的产品和服务，使您更轻松自如地享受服务。
+  </span>        
+</div>
+
+<br><br>
+ 
+
+
+
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span6">
+      <!--Sidebar content-->
+      <h1>万维助手支持哪些版本？</h1>
+      <span style="font-size: 24px">Android版 </span><br>
+      <span style="font-size: 24px">iPhone版（开发中）</span>
+      <br><br>
+      
+      <button type="button" class="btn btn-default btn-lg btn-block">
+        <h1><%= link_to "下载万维安全助手", download_apps_url, class: "fa fa-download" %></h1>
+      </button>
+      
+      <button type="button" class="btn btn-default btn-lg btn-block">
+        <h1><%= link_to "下载万维安全SDK", download_sdks_url, class: "fa fa-download"  %></h1>
+      </button>
+      
+      <% if !current_user or !current_user.publisher %>        
+        <button type="button" class="btn btn-default btn-lg btn-block">
+          <h1><%= link_to "加盟万维安全平台", new_publisher_path, class: "fa fa-plug"  %></h1>
+        </button>
+      <% end %>
+              
+      <% if can? :create, App %>        
+        <button type="button" class="btn btn-default btn-lg btn-block">
+          <h1><%= link_to "递交移动应用", new_app_path, class: "fa fa-upload"  %></h1>
+        </button>
+      <% end %>
+              
+    </div>
+    <div class="span6">
+      <%= image_tag('pages_app_qr_xd_star.png') %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

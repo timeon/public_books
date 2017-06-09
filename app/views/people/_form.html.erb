@@ -1,0 +1,35 @@
+<!-- https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/_form.html.erb -->
+
+<div class="well">
+  <%= simple_form_for person, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= hidden_field_tag(:ref, @return_path) %>
+      <%= f.association :family %>
+      <%= f.input :relation %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :chinese_name %>
+      <%= f.input :email %>
+      <%= f.input :phone %>
+      <%= f.input :phone_ext %>
+    
+    </div>
+  
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+        <i class="fa fa-check"></i> Save
+      <% end %>
+      
+
+      <%= link_to :back, :class => 'btn btn-default' do %>
+        <span class="fa fa-chevron-left"></span>
+        Back
+      <% end %>
+      
+    </div>
+    
+  <% end %>
+</div> 
+  

@@ -1,0 +1,1 @@
+json.extract! @lesson, :course_id, :name, :description, :body, :image

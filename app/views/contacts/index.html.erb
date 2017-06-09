@@ -1,0 +1,5 @@
+<%= render :partial => 'index_header' %>  	
+
+<table style="font-size: 20px">
+	<%= render :partial => 'show', :collection => @contacts, :as => :contact, :locals => {:photo => true, :links => true} %>  
+</table>

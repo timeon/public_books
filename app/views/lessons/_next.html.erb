@@ -1,0 +1,21 @@
+<% if lesson.next.blank? or (!lesson.next.public and !admin?) %>
+  <center>(全文完 )&nbsp;&nbsp;&nbsp;&nbsp;</center>  
+  <%= button_to course_path(lesson.course), class: 'ui-btn ui-corner-all ui-shadow ui-icon-home ui-btn-icon-right', method: :get do %>
+    回到封面
+  <% end %>
+  
+  <% if lesson.course.next %>
+  <br><br>
+  <center>推荐阅读&nbsp;&nbsp;&nbsp;&nbsp;</center>  
+         
+    <%= button_to course_path(lesson.course.next), class: 'ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right', method: :get do %>
+        <%= lesson.course.next %>
+    <% end %>
+  <% end %>
+  
+<% else %>  
+  <%= button_to lesson.next, class: 'ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right', method: :get do %>
+    <%= lesson.next.name.t session[:locale] %>
+  <% end %>
+<% end %>
+

@@ -1,0 +1,50 @@
+  <tr>
+    <td>    
+      <span class="person_name"><%= link_to person, person %></span><br>
+      <% if !person.family.blank? %>
+        <span class="person_family">Family: <b><%= person.family %></b></span><br>
+      <% end %>
+      <% if !person.relation.blank? %>
+        <span class="person_relation">Relationship: <b><%= person.relation %></b></span><br>
+      <% end %>
+      <% if !person.first_name.blank? %>
+        <span class="person_first_name">First name: <b><%= person.first_name %></b></span><br>
+      <% end %>
+      <% if !person.last_name.blank? %>
+        <span class="person_last_name">Last name: <b><%= person.last_name %></b></span><br>
+      <% end %>
+      <% if !person.chinese_name.blank? %>
+        <span class="person_chinese_name">Chinese name: <b><%= person.chinese_name %></b></span><br>
+      <% end %>
+      <% if !person.email.blank? %>
+        <span class="person_email">Email: <b><%= person.email %></b></span><br>
+      <% end %>
+      <% if !person.phone.blank? %>
+        <span class="person_phone">Phone: <b><%= person.phone %></b></span><br>
+      <% end %>
+      <% if !person.phone_ext.blank? %>
+        <span class="person_phone_ext">Phone ext: <b><%= person.phone_ext %></b></span><br>
+      <% end %>
+    </td>    
+
+    <td>    
+    <% if false %>   # edit in full page     
+      <%= render partial: '/people/preview_modal', locals: {person: person} %>
+
+      <%= link_to person, :class => 'btn btn-default', :title => "details" do %>
+        <i class="fa fa-eye-open"></i>
+      <% end %>
+  
+      <%= render partial: '/people/edit_modal', locals: {person: person} %>
+    <% end %>
+  
+      <%= link_to edit_person_path(person, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to delete_person_path(person), method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

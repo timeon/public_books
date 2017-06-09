@@ -1,0 +1,13 @@
+
+	<div>
+	  <table class="table table-hover table-striped">
+	    <% if false %>
+	    <%= render partial: '/lessons/header' %>
+      <% end %>
+      
+	    <tbody>
+        <%= render partial: '/lessons/summary', collection: lessons, as: :lesson %>
+	    </tbody>
+	  </table>
+	</div>
+

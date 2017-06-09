@@ -1,0 +1,92 @@
+<tr class="photo_contact">
+    <td>  
+      <table>
+        <tr class="contact_header">
+          <td><%= contact.chinese_names %></td>
+            
+          <% if false %>
+            <td><%= contact.adult_1_last_name[0..0] %></td>
+          <% else %>
+            <td width="10px"></td>
+          <% end %>
+        
+          <td>
+            <% if contact.home_phone %>
+                <%= contact.us? ? number_to_phone(contact.home_phone, :area_code => true) : contact.home_phone%>
+            <% end %>
+          </td>
+        </tr>
+   
+        <tr>
+          <td colspan="3">
+            <span class="contact_body">
+              <%= contact.english_names %><br>
+              <% if contact.children.length > 0 %>
+                <i><%= contact.children %></i><br>
+              <% end %>   
+              <%= contact.street_no_and_name %><br>  
+              <%= contact.city %>, <%= contact.state %> <%= contact.zip %> <br>
+                
+              <% if contact.adult_1_phone? %>
+                <%= contact.us? ? number_to_phone(contact.adult_1_phone, :area_code => true) : contact.adult_1_phone%>
+                <% if contact.adult_1_phone_ext %>
+                  x <%= contact.adult_1_phone_ext %>
+                <% end %>  
+              <% end %>  
+              <%= contact.adult_1_email %> 
+
+              <% if contact.adult_1_phone? or  contact.adult_1_email? %>
+              <br>
+              <% end %>  
+                
+              <% if contact.adult_2_phone? %>
+                <%= contact.us? ? number_to_phone(contact.adult_2_phone, :area_code => true) : contact.adult_2_phone%>
+                <% if contact.adult_2_phone_ext %>
+                  x <%= contact.adult_2_phone_ext %>
+                <% end %>  
+              <% end %>  
+              <%= contact.adult_2_email %>
+            </span>
+          </td>
+        </tr>
+   
+      </table>  
+    </td>
+
+    <% if photo %>
+    <td>
+        <%= link_to image_tag(root_url + contact.photo.url(:thumb), :height => 120, :alt=> (contact.photo_number ? ("photo # " + contact.photo_number.to_s) : "Family photo") ), contact.photo.url("large"), :class=>"no-border" %><br/>
+    </td>
+    <% end %>  
+  
+    <% if links %>
+      <td class="contact_body">
+
+
+        <% if contact.verified %>
+          Verified, thanks !<br>
+        <% else %> 
+          <%= link_to '完全正确  All correct!', verify_contact_url(contact) %><br><br>
+        <% end %>  
+    
+        <%= link_to   '需要修改 Make changes',   edit_contact_url(contact, :key=>contact.key) %><br><br>
+    
+        <% if photo %>
+          <%= link_to '上载照片 Upload photo',   edit_contact_url(contact, :key=>contact.key) %><br><br>
+          <%= link_to "下载照片  Download photo", contact.photo.url %><br><br>
+          <%= contact.photo_number.to_s %>
+        <% end %>  
+        
+        <% if defined? (admin?) and admin? %> 
+          <%= contact.one_more_year? ? "one more year" : "" %><br>
+          <%= contact.note %><br>
+          <%= link_to 'Delete', contact_path(contact),  :method => :delete, :confirm => "Are you sure to delete this contact?"  %> | 
+          <%= link_to 'Send check email', check_contact_url(contact) %><br>
+        <% end %>
+      </td>
+    <% end %>    
+</tr>
+<tr>
+  <td>&nbsp;</td>
+</tr>
+

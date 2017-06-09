@@ -1,0 +1,35 @@
+<tr>
+    <td>    
+        <span class="property_name"><%= property.name %> = <b><%= property.value %></b></span><br>
+    </td>    
+
+    <td>    
+      <%= render partial: '/properties/preview_modal', locals: {property: property} %>
+
+      <%= link_to property, :class => 'btn btn-default', :title => "details" do %>
+        <span class="icon icon-eye-open"></span>
+      <% end %>
+  
+      <%= render partial: '/properties/edit_modal', locals: {property: property} %>
+
+    <% if false %>   # edit in full page     
+       <%= link_to edit_property_path(property, ref:request.path), :class => 'btn btn-default', :title => "edit" do %>
+        <span class="icon icon-edit"></span>
+       <% end %>
+    <% end %>
+  
+      <%= link_to property, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-default', :title=>"Delete" do %>
+        <span class="icon icon-remove"></span>
+      <% end %>
+    </td>
+    
+<% if defined? programmer? and programmer? %>    
+    <td><em><%= property.id %></em></td>
+    <td>
+      <em><%= link_to "xml",  property_path(property, :format => "xml" ) %></em>
+      <em><%= link_to "json", property_path(property, :format => "json") %></em>
+    </td>
+<% end %>
+    
+</tr>
+

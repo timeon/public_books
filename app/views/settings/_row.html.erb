@@ -1,0 +1,36 @@
+<tr>
+<% if defined? programmer? and programmer? %>    
+    <td><em><%= setting.id %></em></td>
+    <td><em><%= link_to "settings/#{setting.id}.xml",  setting_path(setting, :format => "xml" ) %></em></td>
+    <td><em><%= link_to "settings/#{setting.id}.json", setting_path(setting, :format => "json") %></em></td>
+<% end %>
+
+    <td><%= setting.var %></td>
+    <td><%= setting.value %></td>
+    	  
+    <td>
+    
+    <% if false %>
+      <%= render partial: '/settings/preview_modal', locals: {setting: setting} %>
+
+      <%= link_to setting, :class => 'btn btn-default' do %>
+        <span class="icon icon-info-sign"></span>
+        Details
+      <% end %>
+
+      <%= render partial: '/settings/edit_modal', locals: {setting: setting} %>
+
+    <% end %>
+
+      <%= link_to edit_setting_path(setting, ref:request.path), :class => 'btn btn-default' do %>
+        <span class="icon icon-edit"></span>
+        Edit
+      <% end %>
+  
+      <%= link_to setting, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-default' do %>
+        <span class="icon icon-remove"></span>
+        Delete
+      <% end %>
+    </td>
+</tr>
+

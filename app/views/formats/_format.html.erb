@@ -1,0 +1,27 @@
+  <tr>
+    <td class="format_name"><b><%= link_to format, format %></b></td>
+
+    <td class="format_name"><%= format.name %></td>
+    <td class="format_media"><%= format.media %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to format, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/formats/preview_modal', locals: {format: format} %>
+
+      <%= render partial: '/formats/edit_modal', locals: {format: format} %>
+    <% end %>
+  
+      <%= link_to edit_format_path(format, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to format, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

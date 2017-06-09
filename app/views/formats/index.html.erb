@@ -1,0 +1,25 @@
+<%= render partial:  '/formats/list', 
+            locals:   { formats:    @formats, 
+                        as:              'format', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<% if false %>
+
+<%= render partial:  '/formats/table', 
+            locals:   { formats:    @formats, 
+                        as:              'format', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%= render partial: '/formats/deck', collection: @formats, as: :format %>
+<% end %>

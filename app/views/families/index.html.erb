@@ -1,0 +1,51 @@
+<div class="row rrow section-header">
+  <% new_family = Family.new %>
+  <div class="span0">
+      <h3>
+          <%= link_to new_family_path(ref:request.path), :class => 'edit_button' do %>
+            <span class="fa fa-plus fa-lg"></span>
+          <% end %>
+
+          <%= link_to "all enabled",  families_path %> | 
+          <%= link_to "print",        families_path(print:1) %> | 
+          <%= link_to "verified",     families_path(verified:1) %> | 
+          <%= link_to "unverified",   families_path(verified:0) %> | 
+          <%= link_to "sent mail",    families_path(sent:1) %> | 
+          <%= link_to "not  sent",    families_path(sent:0) %> | 
+          <%= link_to "disabled",     families_path(disabled:1) %> | 
+          <%= link_to "list",         list_families_path() %> | 
+          <%= link_to "mail all",     check_all_families_path() %> | 
+          <%= link_to "reset all",    reset_all_families_path() %> | 
+
+          <%= @families.count %> families 
+
+      </h3>
+  </div>
+</div>
+
+<% if @families.class.name == "ActiveRecord::Relation"  %>
+  <%= will_paginate @families %>
+<% end %>  
+
+
+圣地亚哥中区主恩堂通信录<%=DateTime.now.year%>年<%=DateTime.now.month%>月版
+
+<table>
+<thead>
+  <tr>
+     <th>&nbsp</th>
+     <th></th>
+  </tr>
+</thead>
+
+    <%= render partial: '/families/show', collection: @families, as: :family %>
+
+<tfoot>
+  <tr>
+     <th style="float:left" class="incrementClass">Page </th>
+     <th>圣地亚哥中区主恩堂</th>
+     <th style="float:right">CBCSD-CC</th>
+  </tr>
+</tfoot>
+
+</table>

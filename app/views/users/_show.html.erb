@@ -1,0 +1,13 @@
+<% cache user do %>
+
+<div class="well">
+  <dl class="dl-horizontal">
+    <dl></dl>
+    <dd><%= user.display_name -%></dd>
+    <dd><%= user.roles[0] -%></dd>
+    <dd><%= user.phone -%></dd>
+    <dd><%= user.email -%></dd>
+  </dl>
+</div>
+
+<% end %>

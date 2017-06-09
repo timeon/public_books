@@ -1,0 +1,203 @@
+<table cellpadding="50">
+<%= simple_form_for @contact, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
+
+    <% if @contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+        <ul>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>  
+    <% end %>
+
+    <%= f.hidden_field  :user_id %> 
+	<%= hidden_field_tag(:key, @contact.key) %>
+  
+<% if true %>
+
+    <tr>
+      <td>上传全家照</td>
+      <td colspan="5"><%= f.file_field 'photo' %></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="5">Upload your own family photo</td>
+    </tr>
+    <tr><td>&nbsp;</td> </tr>   <tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td>或填写照片号码</td>
+      <td colspan="5"><%= f.text_field 'photo_number', :size=>10%></td>
+    </tr>
+    
+    <tr>
+      <td></td>
+      <td colspan="5">Or provide the number of the photo you took at church, for example: 6868</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+<% end %>
+  
+    <tr>
+      <td>地址&nbsp;</td>
+      <td><%= f.text_field :street_no_and_name , :size=>20 %>&nbsp;</td>
+      <td><%= f.text_field :city , :size=>10 %>&nbsp;</td>
+      <td><%= f.text_field :state , :size=>10 %></td>
+      <td><%= f.text_field :zip , :size=>10 %> <%= select(:contact, :country, Contact::COUNTRIES) %></td>
+      <td><%= f.text_field :home_phone , :size=>10 %></td>
+      
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td>Street no. and name </td>
+      <td>City   </td>
+      <td>State</td>
+      <td>Zip</td>
+      <td>宅电 Home phone</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td>大人</td>
+      <td><%= f.text_field :adult_1_first_name, :size=>10 %>&nbsp;</td>
+      <td><%= f.text_field :adult_1_last_name , :size=>10 %>&nbsp;</td>
+      <td><%= f.text_field :adult_1_chinese_name , :size=>10 %>&nbsp;</td>
+      <td><%= f.text_field :adult_1_email , :size=>25 %>&nbsp;</td>
+      <td><%= f.text_field :adult_1_phone , :size=>10 %></td>
+      <td>x <%= f.text_field :adult_1_phone_ext , :size=>1 %></td>
+    </tr>
+    <tr>
+      <td>adult</td>
+      <td>first name  </td>
+      <td>last name   </td>
+      <td>中文姓名 &nbsp;&nbsp;</td>
+      <td>邮箱email</td>
+      <td colspan="2">手机/办公室/cell/work(optional)</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td>大人</td>
+      <td><%= f.text_field :adult_2_first_name, :size=>10 %></td>
+      <td><%= f.text_field :adult_2_last_name , :size=>10 %></td>
+      <td><%= f.text_field :adult_2_chinese_name , :size=>10 %></td>
+      <td><%= f.text_field :adult_2_email , :size=>25 %></td>
+      <td><%= f.text_field :adult_2_phone , :size=>10 %></td>
+      <td>x <%= f.text_field :adult_2_phone_ext , :size=>1 %></td>
+    </tr>
+    <tr>
+      <td>adult</td>
+      <td>first name  </td>
+      <td>last name   </td>
+      <td>中文姓名&nbsp;&nbsp;</td>
+      <td>邮箱 email</td>
+      <td colspan="2">手机/办公室/cell/work(optional)</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td><%= select(:contact, :child_1_relation, Contact::RELATIONS) %></td>
+      <td><%= f.text_field :child_1_first_name, :size=>10 %></td>
+      <td><%= f.text_field :child_1_last_name, :size=>10 %></td>
+      <td><%= f.text_field :child_1_chinese_name, :size=>10 %></td>
+    </tr>
+    <tr>
+      <td>Dependent</td>
+      <td>first name  </td>
+      <td>last name  </td>
+      <td>中文姓名 (optional)</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td><%= select(:contact, :child_2_relation, Contact::RELATIONS) %></td>
+      <td><%= f.text_field :child_2_first_name, :size=>10 %></td>
+      <td><%= f.text_field :child_2_last_name, :size=>10 %></td>
+      <td><%= f.text_field :child_2_chinese_name, :size=>10 %></td>
+    </tr>
+    <tr>
+      <td>Dependent</td>
+      <td>first name  </td>
+      <td>last name  </td>
+      <td>中文姓名(optional) </td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+
+    <tr>
+      <td><%= select(:contact, :child_3_relation, Contact::RELATIONS) %></td>
+      <td><%= f.text_field :child_3_first_name, :size=>10 %></td>
+      <td><%= f.text_field :child_3_last_name, :size=>10 %></td>
+      <td><%= f.text_field :child_3_chinese_name, :size=>10 %></td>
+    </tr>
+    <tr>
+      <td>Dependent</td>
+      <td>first name  </td>
+      <td>last name  </td>
+      <td>中文姓名(optional) </td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td><%= select(:contact, :child_4_relation, Contact::RELATIONS) %></td>
+      <td><%= f.text_field :child_4_first_name, :size=>10 %></td>
+      <td><%= f.text_field :child_4_last_name, :size=>10 %></td>
+      <td><%= f.text_field :child_4_chinese_name, :size=>10 %></td>
+    </tr>
+    <tr>
+      <td>Dependent</td>
+      <td>first name  </td>
+      <td>last name  </td>
+      <td>中文姓名(optional) </td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+  
+    <tr>
+      <td><%= select(:contact, :child_5_relation, Contact::RELATIONS) %></td>
+      <td><%= f.text_field :child_5_first_name, :size=>10 %></td>
+      <td><%= f.text_field :child_5_last_name, :size=>10 %></td>
+      <td><%= f.text_field :child_5_chinese_name, :size=>10 %></td>
+    </tr>
+    <tr>
+      <td>Dependent</td>
+      <td>first name  </td>
+      <td>last name  </td>
+      <td>中文姓名 (optional)</td>
+    </tr>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+
+    <tr>
+      <td align="right"><%= f.check_box :verified%> &nbsp;</td>  	
+      <td colspan="5">I have verified my contact to be correct and ready for print ! <br>我已仔细检查，准确无误，可以入册啦 :)</td>  
+    </tr>
+  
+    <% if admin? || coworker? %>
+    <tr>
+      <td align="right"><%= f.check_box :disabled%> &nbsp;</td>  	
+      <td colspan="3">Disable so it won't show on the printed copy</td>  
+    </tr>
+
+    <tr>
+      <td align="right"><%= f.check_box :one_more_year%> &nbsp;</td>  	
+      <td colspan="3">One more year</td>  
+    </tr>
+
+    <tr>
+      <td>Note</td>
+      <td><%= f.text_field :note %></td>
+    </tr>
+    
+    <%end%>
+    <tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td> </tr>    	
+    
+    <tr>
+      <td></td>  	
+      <td><%= f.button :submit %></td>  	
+    </tr>
+  
+  <% end %>
+</table>  
+
+<%= content_for :subheader do %>
+  <h1>中区主恩堂2015通讯录更新   CBC Central Campus Directory Update</h1>
+<% end %>

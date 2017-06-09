@@ -1,0 +1,30 @@
+  <tr>
+    <td class="lesson_name"><b><%= link_to lesson, lesson %></b></td>
+
+    <td class="lesson_course"><%= lesson.course %></td>
+    <td class="lesson_name"><%= lesson.name %></td>
+    <td class="lesson_description"><%= lesson.description %></td>
+    <td class="lesson_body"><%= lesson.body %></td>
+    <td class="lesson_image"><%= lesson.image %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to lesson, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/lessons/preview_modal', locals: {lesson: lesson} %>
+
+      <%= render partial: '/lessons/edit_modal', locals: {lesson: lesson} %>
+    <% end %>
+  
+      <%= link_to edit_lesson_path(lesson, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to lesson, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

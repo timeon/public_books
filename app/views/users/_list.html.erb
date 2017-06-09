@@ -1,0 +1,51 @@
+<% if show_when_empty or users.size > 0 %>
+
+	<div class="row rrow section-header">
+  <% if false %>
+  <% new_user = User.new %>
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+    <div class="span0">
+      <h3><%= render partial: '/users/new_modal', locals:{user:new_user, owner:owner, as:as} %></h3>
+    </div>
+  <% end %>
+  
+
+	<% if defined? programmer? and programmer? %>    
+	  <div class="span0">
+	      <h3><em><%= link_to users_path(:format => "xml"), :class => 'btn btn-default' do %> users.xml<% end %></em></h3>
+	  </div>
+
+	  <div class="span0">
+	      <h3><em><%= link_to users_path(:format => "json"), :class => 'btn btn-default' do %> users.json<% end %></em></h3>
+	  </div>
+	<% end %>
+  
+	</div>
+
+	<% if users.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate users %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped ">
+	    <%= render partial: '/users/header' %>
+    
+	    <tbody>
+	      <% users.each do |user| %>
+	        <%= render partial: '/users/row', locals: {user: user} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_user_path, :class => 'btn btn-default' do %>
+	    <span class="icon icon-plus"></span>
+	    Add User
+	  <% end %>
+	<% end %>  
+
+<% end %>  

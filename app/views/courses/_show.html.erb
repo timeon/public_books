@@ -1,0 +1,83 @@
+ 
+
+<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive" style="margin-left: 0px; font-size:1.2em">
+  <thead>
+    <tr>
+      <th data-priority="1"></th>
+      <th data-priority="persist"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td width="50%">
+          <% if !course.image.blank? %>
+            <%= link_to image_tag(course.image.url, alt:course.name, style:"width: 100%; max-width:500px"), course.lessons.first %>
+          <% elsif !course.image_url.blank? %>
+            <%= link_to image_tag(course.image_url, alt:course.name, style:"width: 100%; max-width:500px"), course.lessons.first %>
+          <% else %>
+            <%= link_to course.lessons.first do %>
+              <div class="jqm-block-contents book-cover" style="background-image: url('/images/covers/leather-cover-<%= course.id%3 %>.jpg')">
+                <div class="book-cover-content" >
+                  <h1><%= course.name.t session[:locale] %></h1>
+                  <b><%= course.subtitle %></b><br>
+                  <p><%= !course.author.blank? ? course.author.name + "  著" : ""%> </p>
+                </div>
+              </div>
+            <% end %>  
+          <% end %>
+        </td width="50%">
+        <td>
+          <h1> 
+            <%= course.name.t session[:locale] -%> 
+            
+            <% if admin? %>     
+                <%= link_to edit_course_path(course, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+                 <i class="fa fa-pencil fa-sm"></i>
+                <% end %>
+          
+                <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+                  <i class="fa fa-trash fa-sm"></i>
+                <% end %>
+                
+                <%= link_to crawl_course_path(course), :class => 'crawl_button', :title => "crawl" do %>
+                 <i class="fa fa-refresh fa-sm"></i>
+                <% end %>
+                
+                <%= link_to new_lesson_path(course:course), :class => 'crawl_button', :title => "add" do %>
+                 <i class="fa fa-plus fa-sm"></i>
+                <% end %>
+                
+            <% end %>
+          </h1>
+          
+          <% if course.author %>
+            <font color="lightblue"></font> <%= link_to course.author, course.author -%> 著  <br><br>
+          <% end %>
+          
+          <% if !course.description.blank? %>
+            <%== course.description.t session[:locale] -%>
+          <% end %>
+          
+          <br>
+          <br>
+          
+          <%= button_to toc_course_path(@course), class: 'ui-btn ui-corner-all ui-shadow ui-icon-bullets ui-btn-icon-right', method: :get do %>
+            目录
+          <% end %>
+          
+          <%= button_to @course.lessons.first, class: 'ui-btn ui-corner-all ui-shadow ui-icon-carat-r ui-btn-icon-right', method: :get do %>
+            开始阅读
+          <% end %>
+          
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+
+<% if !course.image.blank? %>
+  <%= image_tag(course.image.url(:thumb)) %>
+<% end %>
+
+

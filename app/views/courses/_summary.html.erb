@@ -1,0 +1,37 @@
+  <tr>
+    <td width="10px">    
+      <% if !link_to image_tag(course.image.url(:thumb)), course.image.url.blank? %>
+        <span class="course_image">Image: <b><%= link_to image_tag(course.image.url(:thumb)), course %></b></span><br>
+      <a href="<%= course_path course %>"><font color="#BA0019"><i class="fa fa-lg fa-3x <%= course.medium.icon %>"></i><font></a> 
+      <% end %>
+      <br>
+    </td>    
+
+    <td>    
+      <h1><font color="#BA0019"><i class="fa fa-lg <%= course.medium.icon %>"></i><font> <%= link_to course, course -%> </h1>
+
+  <% if owner.class.name != "Author" %>
+        <font color="#BA0019"><i class="fa fa-tag"></i></font> <%= link_to course.category.name.t,  course.category -%>&nbsp;
+        
+        <% if !course.author.blank? %>
+          <font color="#BA0019"><i class="fa fa-user"></i></font> <%= link_to course.author, course.author -%></p>
+        <% end %>
+  <% end %>
+      
+    </td>    
+
+    <td>    
+    <% if admin? %>     
+      <%= link_to edit_course_path(course, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+      
+    <% end %>
+    </td>
+    
+  </tr>
+

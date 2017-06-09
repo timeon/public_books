@@ -1,0 +1,53 @@
+<% if show_when_empty or formats.size > 0 %>
+
+	<div class="row rrow section-header">
+    <% if show_title %>
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+    <% end %>
+  
+    <% if show_new %>
+      <% new_format = Format.new %>
+      <div class="span0">
+      <% if false %>
+        <h3><%= render partial: '/formats/new_modal', 
+                        locals:  { format: new_format, 
+                                    owner:owner, 
+                                    as:as} %></h3>
+      <% end %>
+
+      <h3>
+      <%= link_to new_format_path(ref:request.path), :class => 'edit_button' do %>
+        <span class="fa fa-plus fa-lg"></span>
+      <% end %>
+      </h3>
+      </div>
+    <% end %>
+	</div>
+
+	<% if formats.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate formats %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <% if false %>
+	    <%= render partial: '/formats/header' %>
+      <% end %>
+      
+	    <tbody>
+        <%= render partial: '/formats/summary', collection: formats, as: :format %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_format_path, :class => 'btn btn-default' do %>
+	    <span class="fa fa-plus"></span>
+	    Add Format
+	  <% end %>
+	<% end %>  
+
+<% end %>  

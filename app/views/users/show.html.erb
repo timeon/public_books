@@ -1,0 +1,31 @@
+<div class="row page-header">
+  <div class="span0">
+  <h3>User info</h3>
+  </div>
+  <div class="span0">
+    <h3>
+      <%= link_to edit_user_path(@user, ref:request.path), :class => 'btn btn-default' do %>
+        <span class="icon icon-pencil"></span> 
+        Edit
+      <% end %>
+      
+      <%= link_to users_path, :class => 'btn btn-default' do %>
+        | <span class="icon icon-list"></span>
+        List
+      <% end %>
+      
+      | <%= link_to "change password", edit_user_password_path %>
+          
+    </h3>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<%= render partial: '/users/show', locals: {user: @user} %>
+
+| <%= link_to "change password", edit_user_password_path %>
+
+<% if false %>
+  <%= render partial: '/devices/list', locals:{devices:@user.devices, as:'device', owner:@user, show_when_empty:true, show_pages:true} %>
+<% end %>  

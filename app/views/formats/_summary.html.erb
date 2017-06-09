@@ -1,0 +1,29 @@
+  <tr>
+    <td>    
+      <span class="format_name"><%= link_to format, format %></span><br>
+      <% if false and format and !format.name.blank? %>
+        <span class="format_name">Name: <b><%= format.name %></b></span><br>
+      <% end %>
+    </td>    
+
+    <td>    
+    <% if false %>   # edit in full page     
+      <%= render partial: '/formats/preview_modal', locals: {format: format} %>
+
+      <%= link_to format, :class => 'btn btn-default', :title => "details" do %>
+        <i class="fa fa-eye-open"></i>
+      <% end %>
+  
+      <%= render partial: '/formats/edit_modal', locals: {format: format} %>
+    <% end %>
+  
+      <%= link_to edit_format_path(format, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to format, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

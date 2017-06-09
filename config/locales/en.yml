@@ -1,0 +1,55 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  hello: "Hi"
+  fucai: "lottery"
+  sign-in: "Sign in"
+  sign-up: "Sign up"
+  sign-out: "Sign out"
+  invite: "Invite"
+  resend-confirmation-instructions:    "Resend confirmation instructions"
+  confirm-my-account:                  "Confirm my account"
+  confirm-email-through-link-below:    "Use the link below to confirm your email address"
+  request-link-change-password:        "Someone has requested a link to change your password. You can do this through the link below."
+  change-password:                     "Change password"
+  account-locked-for-sign-in-attempts: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  click-link-unlock-your-account:      "Click the link below to unlock your account:"
+  unlock-my-account:                   "Unlock my account"
+  no-request-please-ignore-email:      "If you didn't request this, please ignore this email."
+  access-link-to-create-new-password:  "You can create a new password through the link above."
+  new-password:                        "New password"
+  confirm-new-password:                "Confirm new password"
+  forgot-your-password:                "Forgot your password？"
+  send-reset－password－instructions:   "Send me reset password instructions"
+  waiting-confirmation:                "Waiting confirmation："
+  leave-blank-if-no-change:            "(leave blank if you don't want to change it)"
+  cancel-my-account:                   "Cancel my account"
+  unhappy:                             "Unhappy?"
+  are-you-sure:                        "Are you sure?"
+  minimum:                             "minimum"
+  characters:                          "characters"
+  not-receive-confirmation-instructions: "Didn't receive confirmation instructions?"
+  not-receive-unlock-instructions:     "Didn't receive unlocking instructions?"
+  resend-unlock-instructions:          "Resend unlocking instructions"
+  no-permission:                       "Sorry, you are not authorized to visit this age" 
+  need-to-sign-in:                     "Sorry, you need to login first"
+

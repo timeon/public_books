@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <p>Dear <%= @family.names %>,</p>
+
+    <p>Before we put it to the print, please verify your family contact info and photo. You may directly update your info and upload your own photo through the link below, or email me back if you need assistance.</p>
+    <p>请确认您的通讯信息是否准确，照片是否满意。 您可以通过以下链接，直接修改信息，上载照片。 也可以回邮件, 把照片和信息发给我。</p>
+
+    <p><%= @url %></p>
+
+    <p>也可以发微信给我</p>
+
+    <%= image_tag root_url + "/images/bryan-wechat.jpg", size:"150x150" %>
+    
+    <p>Thanks and have a blessed day! <p>
+    向前弟兄<br/>
+    858-603-3011</p>
+  </body>
+</html>
+

@@ -1,0 +1,55 @@
+<% if show_when_empty or families.size > 0 %>
+	<% new_family = Family.new %>
+
+	<div class="row rrow section-header">
+    <% if show_title %>
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+    <% end %>
+  
+    <% if show_new %>
+      <% new_family = Family.new %>
+      <div class="span0">
+      <% if false %>
+        <h3><%= render partial: '/families/new_modal', 
+                        locals:  { family: new_family, 
+                                    owner:owner, 
+                                    as:as} %></h3>
+      <% end %>
+
+      <h3>
+      <%= link_to new_family_path(ref:request.path), :class => 'edit_button' do %>
+        <span class="fa fa-plus fa-lg"></span>
+      <% end %>
+      </h3>
+
+      </div>
+    <% end %>
+ 
+    
+	</div>
+
+	<% if families.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate families %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <%= render partial: '/families/header' %>
+
+	    <tbody>
+      <%= render partial: '/families/row', collection: families, as: :family %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_family_path, :class => 'btn btn-default' do %>
+	    <span class="fa fa-plus"></span>
+	    Add Family
+	  <% end %>
+	<% end %>  
+
+<% end %>  

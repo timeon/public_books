@@ -1,0 +1,25 @@
+<%= render partial:  '/people/list', 
+            locals:   { people:    @people, 
+                        as:              'person', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<% if false %>
+
+<%= render partial:  '/people/table', 
+            locals:   { people:    @people, 
+                        as:              'person', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%= render partial: '/people/deck', collection: @people, as: :person %>
+<% end %>

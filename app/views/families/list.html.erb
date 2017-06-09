@@ -1,0 +1,11 @@
+
+  圣地亚哥中区主恩堂通信录2016年5月版<br>
+  <%= @families.count %> families <br>
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-stripe">
+	    <tbody>
+        <%= render partial: '/families/row', collection: @families, as: :family %>
+	    </tbody>
+	  </table>
+	</div>

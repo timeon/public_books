@@ -1,0 +1,29 @@
+  <tr>
+    <td>    
+      <span class="author_name"><%= link_to author, author %></span><br>
+      <% if !link_to image_tag(author.photo.url(:thumb)), author.photo.url.blank? %>
+        <span class="author_photo">Photo: <b><%= link_to image_tag(author.photo.url(:thumb)), author.photo.url %></b></span><br>
+      <% end %>
+    </td>    
+
+    <td>    
+    <% if false %>   # edit in full page     
+      <%= render partial: '/authors/preview_modal', locals: {author: author} %>
+
+      <%= link_to author, :class => 'btn btn-default', :title => "details" do %>
+        <i class="fa fa-eye-open"></i>
+      <% end %>
+  
+      <%= render partial: '/authors/edit_modal', locals: {author: author} %>
+    <% end %>
+  
+      <%= link_to edit_author_path(author, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to author, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

@@ -1,0 +1,33 @@
+<tr>
+<% if defined? programmer? and programmer? %>    
+    <td><em><%= user.id %></em></td>
+    <td><em><%= link_to "users/#{user.id}.xml",  user_path(user, :format => "xml" ) %></em></td>
+    <td><em><%= link_to "users/#{user.id}.json", user_path(user, :format => "json") %></em></td>
+<% end %>
+
+<% if false %>
+    <td><%= link_to image_tag(user.avatar.url(:icon)), user %></td>
+
+    <td><%= user.first_name %></td>
+    	  
+    <td><%= user.last_name %></td>
+    <%= render partial: '/users/preview_modal', locals: {user: user} %>
+<% end %>    
+    
+    <td><%= link_to user.display_name, user %></td>
+    	  
+    <td><%= user.roles[0] %></td>
+
+    <td><%= user.phone %></td>
+    	  
+    <td><%= user.email %></td>
+  
+    <td>    
+      <%= render partial: '/users/edit_modal', locals: {user: user} %>
+  
+      <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-default' do %>
+        <span class="icon icon-remove"></span>
+      <% end %>
+    </td>
+</tr>
+

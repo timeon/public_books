@@ -1,0 +1,8 @@
+<tr class="photo_contact">
+  <td> <%= contact.english_names %>  </td>
+  <td> <%= contact.chinese_names %>  </td>
+  <td> <% if contact.home_phone %>
+		    <%= contact.us? ? number_to_phone(contact.home_phone, :area_code => true) : contact.home_phone%>
+		<% end %>
+  </td>
+</tr>

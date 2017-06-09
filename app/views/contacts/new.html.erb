@@ -1,0 +1,10 @@
+<%= render :partial => 'instruction', :collection => @contacts, :as => :contact %>
+
+<% if user_signed_in? %>
+	<%= render 'form' %>  
+<% else %>
+    <br><div onclick = "show_flash_login('add_contact_notice', 'fill up contact', '<%= new_contact_path %>' )">Star（开始）</div><br>      
+<% end %>
+
+
+

@@ -1,0 +1,391 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ */
+
+
+.form-actions {
+  background-color: transparent;
+  border-top: 0px solid #e5e5e5;
+}
+
+body {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  font-family: 'Open Sans', sans-serif, "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+
+.lesson_name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.lesson_info{
+  font-size: 1.2em;
+}
+
+.lesson_body{
+  font-size: 1.3em;
+}
+
+.alert p.error_notification {
+  margin-bottom: 0;
+}
+
+div.well {
+  padding: 20px;
+}
+
+pre { display: none; }
+
+article .content {
+  margin: 10px 0;
+}
+
+.form-actions {
+  background-color: none;
+  border-top: 0px solid #e5e5e5;
+  padding: 0px;
+  margin-bottom: 0px;
+}
+
+.navbar .brand {
+  float: left;
+  padding-right: 0;
+}
+
+.navbar span {
+  font-size: 40px;
+  font-weight: bold;
+  vertical-align: middle;  
+}
+
+.navbar .nav {
+  float: right;
+  padding-right: 0;
+}
+
+.form-vertical .boolean .controls {
+  display: inline-block;
+}
+
+.footer {
+  padding: 0px 0;
+  margin-top: 50px;
+  border-top: 1px solid lightblue;
+  background-color: #f5f5f5;
+  position:fixed;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin-bottom:0px;
+}
+
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+
+.footer-links {
+  margin: 10px 0;
+}
+
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+
+.footer-links li:first-child {
+  padding-left: 0;
+}
+
+.modal.fade {
+  top: -100%;
+}
+
+.dl-horizontal > dd:after {
+  display: table;
+  content: "";
+  clear: both;
+}
+
+.collapse {
+  position:relative;
+  height:0;
+  overflow:hidden;
+  -webkit-transition:height 0.35s ease;
+  -moz-transition:height 0.35s ease;
+  -o-transition:height 0.35s ease;
+  transition:height 0.35s ease;
+}
+
+.collapse.in {
+  height:auto;
+}
+
+.children_list h3 {
+  font-size: 16px;
+  font-color: gray;
+}
+
+.children_list{
+  margin-left: 50px;
+}
+
+.navbar .nav > li > a {
+  padding: 0px 6px 10px;
+}
+
+
+.navbar-inverse .navbar-inner {
+  background-color: navy;
+  background-image: linear-gradient(to bottom, black, MidnightBlue);
+}
+ 
+.container{
+  width: auto;
+  max-width: 940px;
+  padding-left: 10px;  
+  padding-top: 10px;
+}
+
+.nav-tabs {
+  margin-left: 0px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.form-search .input-append .btn {
+  margin-top: 10px;
+}
+
+
+.form-search .input-append .search-query {
+  top: 10px;
+}
+
+.strong {
+  font-weight: bold
+}
+
+.navbar-fixed-top,
+{
+  position: relative;
+  left: 0px;  
+  max-width: 940px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -80px;
+  margin-bottom: 80px;
+}
+
+#right-banner{
+  top:10px;
+}
+
+#nav-right {
+  float: right;
+  height: 28px;
+  margin: 10px 0px 0 0;
+  //width: 280px;
+}  
+
+#right-banner {
+    background: url('http://pic1.ooopic.com/uploadfilepic/shiliang/2009-11-29/OOOPIC_weidusj_2009112916e59fa66e546c0f.jpg');
+  background-size: 250px;
+  background-repeat: no-repeat;
+  width: 230px;
+  height: 70px;
+  background-position: -10px -60px;
+  top: 10px;
+  position: absolute;
+}
+
+.sign-in{
+  //margin-left: 100px;
+  float:right;
+  //margin-top: 10px;
+}
+
+.navbar span {
+  font-size: 20px;
+  font-weight: normal;
+  float: right;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+.navbar a span:hover, .brand span:hover , .container span:hover { 
+    color: #999999;
+}
+
+.current-user{
+  //font-size: 16px;
+  top: 40px;
+  //position: absolute;
+  left: 550px;
+  color: #999;
+}
+
+header {
+  max-width: 940px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features, .features span {
+  color:gray;
+  margin-left:10px;
+}
+
+.slogan {
+  font-size:30px;
+  font-weight:bold;
+  color: darkgray;
+}
+
+#product-name {
+  font-size: 24px;
+  color: gray;
+  float: left;
+  top: 20px;
+  position: fixed;
+}
+
+.page-header {
+  color: #0067b7;
+}
+
+.pagination {
+  margin: 5px 0;
+}
+
+.navbar-search {
+  margin-top: 7px;
+  margin-bottom: 10px;
+}
+
+.row-btn {
+  float: left;
+}
+
+.children_list {
+  margin-left: 30px;
+}
+
+.brand {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.brand a {
+  color: gray;
+  text-decoration: none;
+  border-bottom: 0;  
+}
+
+
+#results {
+  display: none;  
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 7px;
+}
+
+.row {
+ margin-left: 0px;
+}
+
+
+.table td {
+  padding-left: 0px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 20px;
+  text-align: left;
+  vertical-align: top;
+  border-top: 0px solid #dddddd;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+h2 {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+body, input, select, textarea, button, .ui-btn {
+  font-family: 'Open Sans', sans-serif, "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+
+
+.table-responsive {
+  border: 0px solid #dddddd;
+}
+
+.jqm-content td {
+  border-top: 0px solid;
+}
+
+.center-wrapper{
+  text-align: center;
+}
+.center-wrapper * {
+  margin: 0 auto;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+
+.jqm-navmenu-panel .ui-btn {
+    font-size: 1.3em;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+h3.ui-collapsible-heading {
+    font-weight: bold;
+    background-color: lightgray;
+}
+
+.ui-collapsible-content {
+    padding: .5em .5em;
+    font-size: 0.8em;
+  }
+
+.pagination ul
+{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination ul li { display: inline; }  
+
+li.active {
+  font-weight:bold;
+  font-size:2em;
+}
+
+

@@ -1,0 +1,12 @@
+<% if show_when_empty or properties.size > 0 %>
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <tbody>
+	      <% properties.each do |property| %>
+	        <%= render partial: '/properties/row', locals: {property: property} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
+<% end %>  

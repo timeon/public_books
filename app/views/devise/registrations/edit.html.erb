@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h2><%= t('edit') %> <%= resource_name.to_s.humanize %></h2>
+</div>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %></div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t('waiting-confirmation') %> <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div><%= f.label :password %> <i><%= t('leave-blank-if-no-change') %></i><br />
+    <%= f.password_field :password, autocomplete: t('off') %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: t('off') %></div>
+
+  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: t('off') %></div>
+
+  <div><%= f.submit t('update') %></div>
+<% end %>
+
+<h3><%= t('cancel-my-account') %></h3>
+
+<p><%= t('unhappy') %>? <%= button_to t('cancel-my-account'), registration_path(resource_name), data: { confirm: t('are-you-sure') }, method: :delete %></p>
+
+<%= link_to t('back'), :back %>

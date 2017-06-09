@@ -1,0 +1,27 @@
+<div class="row page-header">
+  <div class="span0">
+  <h3>Format info</h3>
+  </div>
+  <div class="span0">
+    <h3>
+      <%= link_to edit_format_path(@format, ref:request.path), :class => 'edit_button' do %>
+        <span class="fa fa-pencil"></span>
+      <% end %>
+      
+      <%= link_to formats_path, :class => 'delete_button' do %>
+        <span class="fa fa-list"></span>
+      <% end %>
+    </h3>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<%= render partial: '/formats/show', locals: {format: @format} %>
+
+<div class="children_list tabbable tabs-left">
+  <ul class="nav nav-tabs">
+  </ul><!-- end-of-tabs -->
+  <div class="tab-content">
+  </div><!-- end-of-contents -->
+</div><!--end-children-list -->

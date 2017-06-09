@@ -1,0 +1,36 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 course_car">
+  <div class="well">
+      <span class="course_name"><%= link_to course, course %></span><br>
+    <% if !course.category.blank? %>
+      <span class="course_category">Category: <b><%= course.category %></b></span><br>
+    <% end %>
+    <% if !course.medium.blank? %>
+      <span class="course_medium">Medium: <b><%= course.medium %></b></span><br>
+    <% end %>
+    <% if !course.format.blank? %>
+      <span class="course_format">Format: <b><%= course.format %></b></span><br>
+    <% end %>
+    <% if !course.author.blank? %>
+      <span class="course_author">Author: <b><%= course.author %></b></span><br>
+    <% end %>
+    <% if !course.name.blank? %>
+      <span class="course_name">Name: <b><%= course.name %></b></span><br>
+    <% end %>
+    <% if !course.description.blank? %>
+      <span class="course_description">Description: <b><%= course.description %></b></span><br>
+    <% end %>
+    <% if !link_to image_tag(course.image.url(:thumb)), course.image.url.blank? %>
+      <span class="course_image">Image: <b><%= link_to image_tag(course.image.url(:thumb)), course.image.url %></b></span><br>
+    <% end %>
+
+      <%= link_to edit_course_path(course, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+  </div>
+</div>
+
+

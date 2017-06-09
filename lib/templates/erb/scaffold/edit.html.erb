@@ -1,0 +1,6 @@
+<div class="page-header">
+  <h3>Editing <%= singular_table_name %></h3>
+</div>
+
+<%%= render partial: '/<%= plural_table_name %>/form', locals: {<%= singular_table_name %>: @<%= singular_table_name %>} %>
+

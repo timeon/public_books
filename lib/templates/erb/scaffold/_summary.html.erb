@@ -1,0 +1,31 @@
+  <tr>
+    <td>    
+      <span class="<%= singular_table_name %>_name"><%%= link_to <%= singular_table_name %>, <%= singular_table_name %> %></span><br>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <%% if !<%= singular_table_name %>.<%= attribute.name %>.blank? %>
+        <span class="<%= singular_table_name %>_<%= attribute.name %>"><%= attribute.human_name %>: <b><%%= <%= singular_table_name %>.<%= attribute.name %> %></b></span><br>
+      <%% end %>
+<% end -%>
+    </td>    
+
+    <td>    
+    <%% if false %>   # edit in full page     
+      <%%= render partial: '/<%= plural_table_name %>/preview_modal', locals: {<%= singular_table_name %>: <%= singular_table_name %>} %>
+
+      <%%= link_to <%= singular_table_name %>, :class => 'btn btn-default', :title => "details" do %>
+        <i class="fa fa-eye-open"></i>
+      <%% end %>
+  
+      <%%= render partial: '/<%= plural_table_name %>/edit_modal', locals: {<%= singular_table_name %>: <%= singular_table_name %>} %>
+    <%% end %>
+  
+      <%%= link_to edit_<%= singular_table_name %>_path(<%= singular_table_name %>, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <%% end %>
+
+      <%%= link_to <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <%% end %>
+    </td>
+  </tr>
+

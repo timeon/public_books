@@ -1,0 +1,7 @@
+Setting.gacode      = 'UA-58579562-1'
+Setting.company     = 'Right Technologies LLC'
+Setting.service     = '传道课程'
+Setting.logo        = '/assets/bible-40.png'
+Setting.keywords    = 'right keywords'
+Setting.description = 'right description'
+Setting.tagline     = 'right solution'

@@ -1,0 +1,12 @@
+<% cache audit do %>
+<tr>
+    <td><%= audit.id %></td>    
+    <td><%= audit.created_at.strftime("%Y-%m-%d") %></td>    
+    <td><%= audit.created_at.strftime("%H:%M:%S") %></td>    
+    <td><%= audit.remote_address %></td>    
+    <td><%= link_to audit.user, audit.user %></td>    
+    <td><%= link_to t(audit.action), audit %></td>    
+    <td><%= link_to data_name(audit),  data_url(audit) %></td>    
+</tr>
+<% end %>
+

@@ -1,0 +1,7 @@
+<% if @course.format.name == 'fung' %>
+  <iframe src="<%= @course.source_url %>" width="100%" height="720" style="border:none"></iframe>
+<% elsif @course.format.name == 'html' %>
+  <%= render partial: '/courses/show', locals: {course: @course} %>
+<% end %>
+
+

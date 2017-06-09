@@ -1,0 +1,57 @@
+<div class="well">
+  <dl class="dl-horizontal">
+
+  <% if defined? programmer? and programmer? %>    
+    <dt><em>Id</em></dt>
+    <dd><em><%= audit.id %></em></dd>
+    
+    <dt><em>XML</em></dt>
+    <dd><em><%= link_to "audits/#{audit.id}.xml",  audit_path(audit, :format => "xml") -%></em></dd>
+
+    <dt><em>JSON</em></dt>
+    <dd><em><%= link_to "audits/#{audit.id}.json", audit_path(audit, :format => "json") -%></em></dd>
+  <% end -%>
+        
+  
+    <dt>Auditable type</dt>
+    <dd><%= audit.auditable_type -%></dd>
+
+    <dt>Auditable Id</dt>
+    <dd><%= audit.auditable_id -%></dd>
+  
+    <dt>Associated</dt>
+    <dd><%= audit.associated -%></dd>
+  
+    <dt>Associated type</dt>
+    <dd><%= audit.associated_type -%></dd>
+  
+    <dt>User</dt>
+    <dd><%= audit.user -%></dd>
+  
+    <dt>User type</dt>
+    <dd><%= audit.user_type -%></dd>
+  
+    <dt>Username</dt>
+    <dd><%= audit.username -%></dd>
+  
+    <dt>Action</dt>
+    <dd><%= audit.action -%></dd>
+  
+    <dt>Audited changes</dt>
+    <dd><%== changes audit.audited_changes -%></dd>
+  
+    <dt>Version</dt>
+    <dd><%= audit.version -%></dd>
+  
+    <dt>Comment</dt>
+    <dd><%= audit.comment -%></dd>
+  
+    <dt>Remote address</dt>
+    <dd><%= audit.remote_address -%></dd>
+  
+    <dt>Request uuid</dt>
+    <dd><%= audit.request_uuid -%></dd>
+
+  </dl>
+</div>
+

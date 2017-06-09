@@ -1,0 +1,24 @@
+<% adult = family.people.where(relation: 'self').first %>
+<% spuse = family.people.where(relation: 'spouse').first %>
+
+<tr>
+  <td>
+    <%= adult.last_name.upcase %>, <%= adult.first_name %>
+    <% if spuse %>
+      & <%= spuse.first_name %> <%= spuse.last_name != adult.last_name ? spuse.last_name.upcase : '' %>
+    <% end %>  
+  </td>
+
+  <td>    
+    <%= adult.chinese_name %>
+    <% if spuse %>
+      <%= ", #{spuse.chinese_name}" %>
+    <% end %>  
+  </td>
+
+  <td>
+    <b><%= number_to_phone(family.number, :area_code => true) %></b>  
+  </td>
+
+</tr>  
+

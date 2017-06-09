@@ -1,0 +1,33 @@
+  <tr>
+    <td class="person_name"><b><%= link_to person, person %></b></td>
+
+    <td class="person_family"><%= person.family %></td>
+    <td class="person_relation"><%= person.relation %></td>
+    <td class="person_first_name"><%= person.first_name %></td>
+    <td class="person_last_name"><%= person.last_name %></td>
+    <td class="person_chinese_name"><%= person.chinese_name %></td>
+    <td class="person_email"><%= person.email %></td>
+    <td class="person_phone"><%= person.phone %></td>
+    <td class="person_phone_ext"><%= person.phone_ext %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to person, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/people/preview_modal', locals: {person: person} %>
+
+      <%= render partial: '/people/edit_modal', locals: {person: person} %>
+    <% end %>
+  
+      <%= link_to edit_person_path(person, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to person, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

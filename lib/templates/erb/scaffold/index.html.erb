@@ -1,0 +1,25 @@
+<%%= render partial:  '/<%= plural_table_name %>/list', 
+            locals:   { <%= plural_table_name %>:    @<%= plural_table_name%>, 
+                        as:              '<%= singular_table_name%>', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<%% if false %>
+
+<%%= render partial:  '/<%= plural_table_name %>/table', 
+            locals:   { <%= plural_table_name %>:    @<%= plural_table_name%>, 
+                        as:              '<%= singular_table_name%>', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%%= render partial: '/<%= plural_table_name %>/deck', collection: @<%= plural_table_name %>, as: :<%= singular_table_name %> %>
+<%% end %>

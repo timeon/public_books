@@ -1,0 +1,70 @@
+  <tr>
+    <td class="contact_name"><b><%= link_to contact, contact %></b></td>
+
+    <td class="contact_home_phone"><%= contact.home_phone %></td>
+    <td class="contact_street_no_and_name"><%= contact.street_no_and_name %></td>
+    <td class="contact_city"><%= contact.city %></td>
+    <td class="contact_state"><%= contact.state %></td>
+    <td class="contact_zip"><%= contact.zip %></td>
+    <td class="contact_country"><%= contact.country %></td>
+    <td class="contact_adult_1_first_name"><%= contact.adult_1_first_name %></td>
+    <td class="contact_adult_1_last_name"><%= contact.adult_1_last_name %></td>
+    <td class="contact_adult_1_chinese_name"><%= contact.adult_1_chinese_name %></td>
+    <td class="contact_adult_1_email"><%= contact.adult_1_email %></td>
+    <td class="contact_adult_1_phone"><%= contact.adult_1_phone %></td>
+    <td class="contact_adult_1_phone_ext"><%= contact.adult_1_phone_ext %></td>
+    <td class="contact_adult_2_first_name"><%= contact.adult_2_first_name %></td>
+    <td class="contact_adult_2_last_name"><%= contact.adult_2_last_name %></td>
+    <td class="contact_adult_2_chinese_name"><%= contact.adult_2_chinese_name %></td>
+    <td class="contact_adult_2_email"><%= contact.adult_2_email %></td>
+    <td class="contact_adult_2_phone"><%= contact.adult_2_phone %></td>
+    <td class="contact_adult_2_phone_ext"><%= contact.adult_2_phone_ext %></td>
+    <td class="contact_child_1_relation"><%= contact.child_1_relation %></td>
+    <td class="contact_child_1_first_name"><%= contact.child_1_first_name %></td>
+    <td class="contact_child_1_last_name"><%= contact.child_1_last_name %></td>
+    <td class="contact_child_1_chinese_name"><%= contact.child_1_chinese_name %></td>
+    <td class="contact_child_2_relation"><%= contact.child_2_relation %></td>
+    <td class="contact_child_2_first_name"><%= contact.child_2_first_name %></td>
+    <td class="contact_child_2_last_name"><%= contact.child_2_last_name %></td>
+    <td class="contact_child_2_chinese_name"><%= contact.child_2_chinese_name %></td>
+    <td class="contact_child_3_relation"><%= contact.child_3_relation %></td>
+    <td class="contact_child_3_first_name"><%= contact.child_3_first_name %></td>
+    <td class="contact_child_3_last_name"><%= contact.child_3_last_name %></td>
+    <td class="contact_child_3_chinese_name"><%= contact.child_3_chinese_name %></td>
+    <td class="contact_child_4_relation"><%= contact.child_4_relation %></td>
+    <td class="contact_child_4_first_name"><%= contact.child_4_first_name %></td>
+    <td class="contact_child_4_last_name"><%= contact.child_4_last_name %></td>
+    <td class="contact_child_4_chinese_name"><%= contact.child_4_chinese_name %></td>
+    <td class="contact_child_5_relation"><%= contact.child_5_relation %></td>
+    <td class="contact_child_5_first_name"><%= contact.child_5_first_name %></td>
+    <td class="contact_child_5_last_name"><%= contact.child_5_last_name %></td>
+    <td class="contact_child_5_chinese_name"><%= contact.child_5_chinese_name %></td>
+    <td class="contact_photo"><%= link_to image_tag(contact.photo.url(:thumb)), contact.photo.url %></td>
+    <td class="contact_photo_number"><%= link_to image_tag(contact.photo.url(:thumb)), contact.photo.url_number %></td>
+    <td class="contact_user"><%= contact.user %></td>
+    <td class="contact_verified"><%= contact.verified %></td>
+    <td class="contact_disabled"><%= contact.disabled %></td>
+    <td class="contact_key"><%= contact.key %></td>
+    <td class="contact_note"><%= contact.note %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to contact, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/contacts/preview_modal', locals: {contact: contact} %>
+
+      <%= render partial: '/contacts/edit_modal', locals: {contact: contact} %>
+    <% end %>
+  
+      <%= link_to edit_contact_path(contact, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

@@ -1,0 +1,19 @@
+<% if show_when_empty or audits.size > 0 %>
+
+	<% if audits.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate audits %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <%= render partial: '/audits/header' %>
+      
+	    <tbody>
+	      <% audits.each do |audit| %>
+	        <%= render partial: '/audits/row', locals: {audit: audit} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
+<% end %>  

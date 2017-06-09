@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="<%= @description || "传道课程 " %>" />
+    
+    <title><%= @title || "传道课程 " %></title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="/css/jqm-demos.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="/js/jquerymobile.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+
+    <%= csrf_meta_tags %>
+    
+<!--
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+-->    
+    <%= stylesheet_link_tag  "application" %>
+
+<!--    
+    <%= javascript_include_tag "application" %>
+    <%= stylesheet_link_tag  "application", media: "all", cache: false, "data-turbolinks-track" => false %>
+    <%= javascript_include_tag "application", cache: false, "data-turbolinks-track" => false %>
+-->    
+  </head>
+  
+  <body>
+    <div data-role="page" class="jqm-demos jqm-home">
+
+      <div data-role="header" class="jqm-header">
+        <h2>
+            <%= link_to image_tag("/chuandao-32.png", alt: "传道课程 "), root_url %> 
+        </h2>
+        
+        <span class="ui-btn-left">
+          <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-btn-icon-right jqm-navmenu-link ui-icon-carat-r"><%= "书目".t session[:locale]%></a>
+        </span>
+        
+        <span class="ui-btn-right">
+          <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left  jqm-search-link  ui-icon-search "><%= "搜索".t session[:locale]%></a>
+
+          <div id="locale-link">
+            <% if session[:locale] == "cn" %>
+              <%= link_to "繁", @traditional_url %>
+            <% else %>
+              <%= link_to "简", @simplified_url %> 
+            <% end %>
+          </div>
+
+
+          <% if current_user %>
+            <%= link_to "出", logout_families_path %>
+          <% end %>          
+        </span>
+        
+      </div><!-- /header -->
+
+
+      <div role="main" class="ui-content jqm-content">
+
+        <% if flash[:notice] %>
+          <div id="ui-bar-test" class="ui-bar ui-bar-a ui-corner-all" style="margin-bottom:1em; color:green">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>  
+
+        <% if flash[:error] %>
+          <div id="ui-bar-test" class="ui-bar ui-bar-a ui-corner-all" style="margin-bottom:1em; color:red">
+            <%= flash[:error] %>
+          </div>
+        <% end %>  
+
+        <%= yield %>
+      </div><!-- /content -->
+
+
+      <div data-role="panel" class="jqm-navmenu-panel" data-position="left" data-display="overlay" data-theme="a">
+        <ul class="jqm-list ui-alt-icon ui-nodisc-icon">
+            <% cache do %>
+              <% Category.where(public:true).each do |cat| %>
+                <li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
+                  <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href=<%= category_path cat%> class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d"><%= cat.name.t session[:locale] %><span class="ui-collapsible-heading-status"> click to expand contents</span> </a></h3>
+                  <div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+                    <ul>
+                        <% cat.courses.where(public:true).each do |course| %>
+                          <li data-filtertext="<%= course.name.t session[:locale] %> <%= course.description %> ">
+                            <%= link_to course.name.t(session[:locale]), course, "data-ajax" => "false" %>
+                          </li>
+                        <% end %>
+                    </ul>
+                  </div>
+                </li>          
+              <% end %>
+            <% end %>
+
+        </ul>
+      </div><!-- /panel -->
+
+
+      <div data-role="footer" data-position="fixed" data-tap-toggle="false" class="jqm-footer">
+        <p>传道课程   &copy; Copyright 2015-<%=Date.today.year%> </p>
+      </div><!-- /footer -->
+
+
+      <!-- TODO: This should become an external panel so we can add input to markup (unique ID) -->
+      <div data-role="panel" class="jqm-search-panel" data-position="right" data-display="overlay" data-theme="a">
+        <div class="jqm-search">
+          <ul class="jqm-list" data-filter-placeholder="Search demos..." data-filter-reveal="true">
+            <% cache do %>
+              <% Category.all.each do |cat| %>
+                <li data-role="collapsible" data-enhanced="true" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-inset="false" class="ui-collapsible ui-collapsible-themed-content ui-collapsible-collapsed">
+                  <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed"><a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-inherit ui-icon-carat-d"><%= cat.name %><span class="ui-collapsible-heading-status"> click to expand contents</span> </a></h3>
+                  <div class="ui-collapsible-content ui-body-inherit ui-collapsible-content-collapsed" aria-hidden="true">
+                    <ul>
+                        <% cat.courses.each do |course| %>
+                          <li data-filtertext="<%= cat.name.t session[:locale]%> <%= cat.description %> <%= course.name.t session[:locale]%> <%= course.description %> - <%= course.author %> ">
+                            <%= link_to course.name.t(session[:locale]), course, "data-ajax" => "false" %>
+                          </li>
+                        <% end %>
+                    </ul>
+                  </div>
+                </li>          
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div><!-- /panel -->
+
+    </div><!-- /page -->
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-24495109-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+
+    <script type="text/javascript">
+      var msg_title = "<%= @title %>";
+      var msg_desc = "<%= @description %>";
+    </script>
+  
+
+  </body>
+</html>

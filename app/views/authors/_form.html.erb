@@ -1,0 +1,31 @@
+<!-- https://github.com/rails/rails/blob/master/railties/lib/rails/generators/erb/scaffold/templates/_form.html.erb -->
+
+<div class="well">
+  <%= simple_form_for author, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= hidden_field_tag(:ref, @return_path) %>
+      <%= f.input :name %>
+      <%= f.input :english_name %>
+      <%= f.input :description %>
+      <%= f.input :photo %>
+    
+    </div>
+  
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+        <i class="fa fa-check"></i> Save
+      <% end %>
+      
+
+      <%= link_to :back, :class => 'btn btn-default' do %>
+        <span class="fa fa-chevron-left"></span>
+        Back
+      <% end %>
+      
+    </div>
+    
+  <% end %>
+</div> 
+  

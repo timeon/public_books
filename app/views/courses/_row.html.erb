@@ -1,0 +1,32 @@
+  <tr>
+    <td class="course_name"><b><%= link_to course, course %></b></td>
+
+    <td class="course_category"><%= course.category %></td>
+    <td class="course_medium"><%= course.medium %></td>
+    <td class="course_format"><%= course.format %></td>
+    <td class="course_author"><%= course.author %></td>
+    <td class="course_name"><%= course.name %></td>
+    <td class="course_description"><%= course.description %></td>
+    <td class="course_image"><%= link_to image_tag(course.image.url(:thumb)), course.image.url %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to course, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/courses/preview_modal', locals: {course: course} %>
+
+      <%= render partial: '/courses/edit_modal', locals: {course: course} %>
+    <% end %>
+  
+      <%= link_to edit_course_path(course, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to course, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

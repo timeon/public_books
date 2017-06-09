@@ -1,0 +1,53 @@
+<% if show_when_empty or media.size > 0 %>
+
+	<div class="row rrow section-header">
+    <% if show_title %>
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+    <% end %>
+  
+    <% if show_new %>
+      <% new_medium = Medium.new %>
+      <div class="span0">
+      <% if false %>
+        <h3><%= render partial: '/media/new_modal', 
+                        locals:  { medium: new_medium, 
+                                    owner:owner, 
+                                    as:as} %></h3>
+      <% end %>
+
+      <h3>
+      <%= link_to new_medium_path(ref:request.path), :class => 'edit_button' do %>
+        <span class="fa fa-plus fa-lg"></span>
+      <% end %>
+      </h3>
+      </div>
+    <% end %>
+	</div>
+
+	<% if media.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate media %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <% if false %>
+	    <%= render partial: '/media/header' %>
+      <% end %>
+      
+	    <tbody>
+        <%= render partial: '/media/summary', collection: media, as: :medium %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_medium_path, :class => 'btn btn-default' do %>
+	    <span class="fa fa-plus"></span>
+	    Add Medium
+	  <% end %>
+	<% end %>  
+
+<% end %>  

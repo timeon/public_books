@@ -1,0 +1,150 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 contact_car">
+  <div class="well">
+      <span class="contact_name"><%= link_to contact, contact %></span><br>
+    <% if !contact.home_phone.blank? %>
+      <span class="contact_home_phone">Home phone: <b><%= contact.home_phone %></b></span><br>
+    <% end %>
+    <% if !contact.street_no_and_name.blank? %>
+      <span class="contact_street_no_and_name">Street no and name: <b><%= contact.street_no_and_name %></b></span><br>
+    <% end %>
+    <% if !contact.city.blank? %>
+      <span class="contact_city">City: <b><%= contact.city %></b></span><br>
+    <% end %>
+    <% if !contact.state.blank? %>
+      <span class="contact_state">State: <b><%= contact.state %></b></span><br>
+    <% end %>
+    <% if !contact.zip.blank? %>
+      <span class="contact_zip">Zip: <b><%= contact.zip %></b></span><br>
+    <% end %>
+    <% if !contact.country.blank? %>
+      <span class="contact_country">Country: <b><%= contact.country %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_first_name.blank? %>
+      <span class="contact_adult_1_first_name">Adult 1 first name: <b><%= contact.adult_1_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_last_name.blank? %>
+      <span class="contact_adult_1_last_name">Adult 1 last name: <b><%= contact.adult_1_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_chinese_name.blank? %>
+      <span class="contact_adult_1_chinese_name">Adult 1 chinese name: <b><%= contact.adult_1_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_email.blank? %>
+      <span class="contact_adult_1_email">Adult 1 email: <b><%= contact.adult_1_email %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_phone.blank? %>
+      <span class="contact_adult_1_phone">Adult 1 phone: <b><%= contact.adult_1_phone %></b></span><br>
+    <% end %>
+    <% if !contact.adult_1_phone_ext.blank? %>
+      <span class="contact_adult_1_phone_ext">Adult 1 phone ext: <b><%= contact.adult_1_phone_ext %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_first_name.blank? %>
+      <span class="contact_adult_2_first_name">Adult 2 first name: <b><%= contact.adult_2_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_last_name.blank? %>
+      <span class="contact_adult_2_last_name">Adult 2 last name: <b><%= contact.adult_2_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_chinese_name.blank? %>
+      <span class="contact_adult_2_chinese_name">Adult 2 chinese name: <b><%= contact.adult_2_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_email.blank? %>
+      <span class="contact_adult_2_email">Adult 2 email: <b><%= contact.adult_2_email %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_phone.blank? %>
+      <span class="contact_adult_2_phone">Adult 2 phone: <b><%= contact.adult_2_phone %></b></span><br>
+    <% end %>
+    <% if !contact.adult_2_phone_ext.blank? %>
+      <span class="contact_adult_2_phone_ext">Adult 2 phone ext: <b><%= contact.adult_2_phone_ext %></b></span><br>
+    <% end %>
+    <% if !contact.child_1_relation.blank? %>
+      <span class="contact_child_1_relation">Child 1 relation: <b><%= contact.child_1_relation %></b></span><br>
+    <% end %>
+    <% if !contact.child_1_first_name.blank? %>
+      <span class="contact_child_1_first_name">Child 1 first name: <b><%= contact.child_1_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_1_last_name.blank? %>
+      <span class="contact_child_1_last_name">Child 1 last name: <b><%= contact.child_1_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_1_chinese_name.blank? %>
+      <span class="contact_child_1_chinese_name">Child 1 chinese name: <b><%= contact.child_1_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_2_relation.blank? %>
+      <span class="contact_child_2_relation">Child 2 relation: <b><%= contact.child_2_relation %></b></span><br>
+    <% end %>
+    <% if !contact.child_2_first_name.blank? %>
+      <span class="contact_child_2_first_name">Child 2 first name: <b><%= contact.child_2_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_2_last_name.blank? %>
+      <span class="contact_child_2_last_name">Child 2 last name: <b><%= contact.child_2_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_2_chinese_name.blank? %>
+      <span class="contact_child_2_chinese_name">Child 2 chinese name: <b><%= contact.child_2_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_3_relation.blank? %>
+      <span class="contact_child_3_relation">Child 3 relation: <b><%= contact.child_3_relation %></b></span><br>
+    <% end %>
+    <% if !contact.child_3_first_name.blank? %>
+      <span class="contact_child_3_first_name">Child 3 first name: <b><%= contact.child_3_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_3_last_name.blank? %>
+      <span class="contact_child_3_last_name">Child 3 last name: <b><%= contact.child_3_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_3_chinese_name.blank? %>
+      <span class="contact_child_3_chinese_name">Child 3 chinese name: <b><%= contact.child_3_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_4_relation.blank? %>
+      <span class="contact_child_4_relation">Child 4 relation: <b><%= contact.child_4_relation %></b></span><br>
+    <% end %>
+    <% if !contact.child_4_first_name.blank? %>
+      <span class="contact_child_4_first_name">Child 4 first name: <b><%= contact.child_4_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_4_last_name.blank? %>
+      <span class="contact_child_4_last_name">Child 4 last name: <b><%= contact.child_4_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_4_chinese_name.blank? %>
+      <span class="contact_child_4_chinese_name">Child 4 chinese name: <b><%= contact.child_4_chinese_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_5_relation.blank? %>
+      <span class="contact_child_5_relation">Child 5 relation: <b><%= contact.child_5_relation %></b></span><br>
+    <% end %>
+    <% if !contact.child_5_first_name.blank? %>
+      <span class="contact_child_5_first_name">Child 5 first name: <b><%= contact.child_5_first_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_5_last_name.blank? %>
+      <span class="contact_child_5_last_name">Child 5 last name: <b><%= contact.child_5_last_name %></b></span><br>
+    <% end %>
+    <% if !contact.child_5_chinese_name.blank? %>
+      <span class="contact_child_5_chinese_name">Child 5 chinese name: <b><%= contact.child_5_chinese_name %></b></span><br>
+    <% end %>
+    <% if !link_to image_tag(contact.photo.url(:thumb)), contact.photo.url.blank? %>
+      <span class="contact_photo">Photo: <b><%= link_to image_tag(contact.photo.url(:thumb)), contact.photo.url %></b></span><br>
+    <% end %>
+    <% if !link_to image_tag(contact.photo.url(:thumb)), contact.photo.url_number.blank? %>
+      <span class="contact_photo_number">Photo number: <b><%= link_to image_tag(contact.photo.url(:thumb)), contact.photo.url_number %></b></span><br>
+    <% end %>
+    <% if !contact.user.blank? %>
+      <span class="contact_user">User: <b><%= contact.user %></b></span><br>
+    <% end %>
+    <% if !contact.verified.blank? %>
+      <span class="contact_verified">Verified: <b><%= contact.verified %></b></span><br>
+    <% end %>
+    <% if !contact.disabled.blank? %>
+      <span class="contact_disabled">Disabled: <b><%= contact.disabled %></b></span><br>
+    <% end %>
+    <% if !contact.key.blank? %>
+      <span class="contact_key">Key: <b><%= contact.key %></b></span><br>
+    <% end %>
+    <% if !contact.note.blank? %>
+      <span class="contact_note">Note: <b><%= contact.note %></b></span><br>
+    <% end %>
+
+      <%= link_to edit_contact_path(contact, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to contact, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+  </div>
+</div>
+
+

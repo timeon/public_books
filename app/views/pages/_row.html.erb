@@ -1,0 +1,40 @@
+<tr>
+<% if defined? programmer? and programmer? %>    
+    <td><em><%= page.id %></em></td>
+    <td><em><%= link_to "pages/#{page.id}.xml",  page_path(page, :format => "xml" ) %></em></td>
+    <td><em><%= link_to "pages/#{page.id}.json", page_path(page, :format => "json") %></em></td>
+<% end %>
+
+  
+    <td><%= link_to page.name, page %></td>
+    	  
+    <td><%= page.content %></td>
+    	  
+    <td><%= page.position %></td>
+    	  
+    <td><%= page.order %></td>
+    	  
+    <td><%= page.visible %></td>
+  
+    <td>    
+      <%= render partial: '/pages/preview_modal', locals: {page: page} %>
+
+      <%= link_to page, :class => 'btn btn-default' do %>
+        <span class="icon icon-info-sign"></span>
+        Details
+      <% end %>
+  
+      <%= render partial: '/pages/edit_modal', locals: {page: page} %>
+
+       <%= link_to edit_page_path(page, ref:request.path), :class => 'btn btn-default' do %>
+        <span class="icon icon-edit"></span>
+        Edit
+      <% end %>
+  
+      <%= link_to page, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'btn btn-default' do %>
+        <span class="icon icon-remove"></span>
+        Delete
+      <% end %>
+    </td>
+</tr>
+

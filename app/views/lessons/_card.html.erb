@@ -1,0 +1,30 @@
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-2 lesson_car">
+  <div class="well">
+      <span class="lesson_name"><%= link_to lesson, lesson %></span><br>
+    <% if !lesson.course.blank? %>
+      <span class="lesson_course">Course: <b><%= lesson.course %></b></span><br>
+    <% end %>
+    <% if !lesson.name.blank? %>
+      <span class="lesson_name">Name: <b><%= lesson.name %></b></span><br>
+    <% end %>
+    <% if !lesson.description.blank? %>
+      <span class="lesson_description">Description: <b><%= lesson.description %></b></span><br>
+    <% end %>
+    <% if !lesson.body.blank? %>
+      <span class="lesson_body">Body: <b><%= lesson.body %></b></span><br>
+    <% end %>
+    <% if !link_to image_tag(lesson.image.url(:thumb)), lesson.image.url.blank? %>
+      <span class="lesson_image">Image: <b><%= link_to image_tag(lesson.image.url(:thumb)), lesson.image.url %></b></span><br>
+    <% end %>
+
+      <%= link_to edit_lesson_path(lesson, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to lesson, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+  </div>
+</div>
+
+

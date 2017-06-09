@@ -1,0 +1,31 @@
+<div class="well">
+  <%= simple_form_for category, :html => {:class => 'form-horizontal'} do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= hidden_field_tag(:ref, @return_path) %>
+      <%= f.input :name %>
+      <%= f.input :description %>
+      <%= f.input :public %>
+    
+    </div>
+  
+    <div class="form-actions">
+      <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+        <i class="icon icon-ok"></i> Save
+      <% end %>
+      
+
+      <% if @category %>
+        <br><br>
+        <%= link_to @return_path, :class => 'btn btn-default' do %>
+          <span class="icon icon-chevron-left"></span>
+          Back
+        <% end %>
+      <% end %>
+      
+    </div>
+    
+  <% end %>
+</div> 
+  

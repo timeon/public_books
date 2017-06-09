@@ -1,0 +1,24 @@
+<div class="well">
+  <dl class="dl-horizontal">
+  <% if defined? programmer? and programmer? %>    
+    <dt><em>Id</em></dt>
+    <dd><em><%= setting.id %></em></dd>
+    
+    <dt><em>XML</em></dt>
+    <dd><em><%= link_to "settings/#{setting.id}.xml",  setting_path(setting, :format => "xml") -%></em></dd>
+
+    <dt><em>JSON</em></dt>
+    <dd><em><%= link_to "settings/#{setting.id}.json",              setting_path(setting, :format => "json") -%></em></dd>
+  <% end -%>    
+      <dt>Var:</dt>
+    <dd><%= setting.var -%></dd>
+      <dt>Value:</dt>
+    <dd><%= setting.value -%></dd>
+      <dt>Thing type:</dt>
+    <dd><%= setting.thing_type -%></dd>
+      <dt>Thing:</dt>
+    <dd><%= setting.thing_id -%></dd>
+  
+  </dl>
+</div>
+

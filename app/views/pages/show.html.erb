@@ -1,0 +1,23 @@
+<div class="row page-header">
+  <div class="span0">
+  <h3>Page info</h3>
+  </div>
+  <div class="span0">
+    <h3>
+      <%= link_to edit_page_path(@page, ref:request.path), :class => 'btn btn-default' do %>
+        <span class="icon icon-pencil"></span>
+        Edit
+      <% end %>
+      
+      <%= link_to pages_path, :class => 'btn btn-default' do %>
+        <span class="icon icon-list"></span>
+        List
+      <% end %>
+    </h3>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+
+<%= render partial: '/pages/show', locals: {page: @page} %>
+

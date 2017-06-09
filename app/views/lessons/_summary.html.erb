@@ -1,0 +1,62 @@
+  <tr onclick="document.location = '<%= lesson_path(lesson) %>';">
+    
+    <td>    
+  
+    <% if admin? %>     
+      <%= link_to first_lesson_path(lesson, ref:request.path), :title => "first" do %>
+       <i class="fa fa-angle-double-up fa-lg"></i>
+      <% end %>
+
+      <%= link_to up_lesson_path(lesson, ref:request.path), :title => "up" do %>
+       <i class="fa fa-angle-up fa-lg"></i>
+      <% end %>
+
+      <%= link_to down_lesson_path(lesson, ref:request.path), :title => "down" do %>
+       <i class="fa fa-angle-down fa-lg"></i>
+      <% end %>
+
+      <%= link_to last_lesson_path(lesson, ref:request.path), :title => "last" do %>
+       <i class="fa fa-angle-double-down fa-lg"></i>
+      <% end %>
+
+    <% end %>
+    </td>    
+    
+    <td>    
+      <span class="lesson_name">
+        <%= link_to lesson.name.t(session[:locale]), lesson, style:lesson.style %>
+      </span> 
+
+      <% if lesson.author %>
+        <span class="lesson_info">
+          ── <%= lesson.author -%>
+          <br>       
+        </span>
+      <% end %>  
+      
+      
+      <% if false and !lesson.body.blank? %>
+        <span class="lesson_description"><%= truncate(lesson.description, length:34) %></span><br>
+      <% end %>
+      
+      <% if !link_to image_tag(lesson.image.url(:thumb)), lesson.image.url.blank? %>
+        <span class="lesson_image">Image: <b><%= link_to image_tag(lesson.image.url(:thumb)), lesson.image.url %></b></span><br>
+      <% end %>
+    </td>    
+
+    <td>    
+  
+    <% if admin? %>     
+      <%= link_to edit_lesson_path(lesson), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to delete_lesson_path(lesson), data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+
+    <% end %>
+    
+    </td>
+  </tr>
+

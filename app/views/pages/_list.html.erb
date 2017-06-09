@@ -1,0 +1,49 @@
+<% if show_when_empty or pages.size > 0 %>
+	<% new_page = Page.new %>
+
+	<div class="row rrow section-header">
+	  <div class="span0">
+	    <h3><%= as.pluralize.humanize %></h3>
+	  </div>
+  
+	  <div class="span0">
+	    <h3><%= render partial: '/pages/new_modal', locals:{page:new_page, owner:owner, as:as} %></h3>
+	  </div>
+
+	<% if defined? programmer? and programmer? %>    
+	  <div class="span0">
+	      <h3><em><%= link_to pages_path(:format => "xml"), :class => 'btn btn-default' do %> pages.xml<% end %></em></h3>
+	  </div>
+
+	  <div class="span0">
+	      <h3><em><%= link_to pages_path(:format => "json"), :class => 'btn btn-default' do %> pages.json<% end %></em></h3>
+	  </div>
+	<% end %>
+  
+	</div>
+
+	<% if pages.class.name == "ActiveRecord::Relation" and show_pages %>
+	  <%= will_paginate pages %>
+	<% end %>  
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped table-bordered">
+	    <%= render partial: '/pages/header' %>
+    
+	    <tbody>
+	      <% pages.each do |page| %>
+	        <%= render partial: '/pages/row', locals: {page: page} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>
+
+	<% if false %>
+	  <!-- add in a new page, not modal -->
+	  <%= link_to new_page_path, :class => 'btn btn-default' do %>
+	    <span class="icon icon-plus"></span>
+	    Add Page
+	  <% end %>
+	<% end %>  
+
+<% end %>  

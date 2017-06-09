@@ -1,0 +1,45 @@
+<h1>
+  <span class="lesson_name">
+    <%= lesson.name.t session[:locale]-%>
+    <% if admin? %>     
+      <%= link_to edit_lesson_path(lesson), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+    <% end %>
+
+    <% if lesson.author %>
+      -- <font color="lightblue"><i class="fa fa-user"></i></font> <%= link_to lesson.author.name.t, lesson.author -%>
+    <% end %>   
+  </span>
+</h1>
+
+<span class="lesson_info">
+  <font color="lightblue"></font> 
+  <b><%= link_to lesson.course.name.t(session[:locale]), lesson.course -%></b>  
+  <% if lesson.course.author %>  
+    | <font color="lightblue"></font> <%= link_to lesson.course.author, lesson.course.author -%> 著
+  <% end %>  
+  <br><br>
+</span>
+
+<span class="lesson_body">
+  <% if lesson.course.format.name == 'fung' %>
+    <iframe src="http://fungclass.fhl.net/read/02/html5.html" width="100%" height="700" style="border:none"></iframe>
+  <% elsif lesson.course.format.name == 'html' and !lesson.body.blank?%>
+    <%== lesson.body.t(session[:locale]) -%>
+  <% end %>
+</span>
+
+<br /><br />
+
+<% if false %>
+<% if !lesson.prev.blank? %>
+  <%= button_to lesson.prev, class: 'ui-btn ui-corner-all ui-shadow ui-icon-carat-l ui-btn-icon-left', method: :get do %>
+    <%= lesson.prev %>
+  <% end %>
+<% end %>
+<% end %>
+
+<%= render partial: '/lessons/next', locals: {lesson: lesson} %>
+
+

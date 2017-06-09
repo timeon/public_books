@@ -1,0 +1,32 @@
+  <tr>
+    <td>    
+      <span class="medium_name"><%= link_to medium, medium %></span><br>
+      <% if !medium.name.blank? %>
+        <span class="medium_name">Name: <b><%= medium.name %></b></span><br>
+      <% end %>
+      <% if !medium.icon.blank? %>
+        <span class="medium_icon">Icon: <b><%= medium.icon %></b></span><br>
+      <% end %>
+    </td>    
+
+    <td>    
+    <% if false %>   # edit in full page     
+      <%= render partial: '/media/preview_modal', locals: {medium: medium} %>
+
+      <%= link_to medium, :class => 'btn btn-default', :title => "details" do %>
+        <i class="fa fa-eye-open"></i>
+      <% end %>
+  
+      <%= render partial: '/media/edit_modal', locals: {medium: medium} %>
+    <% end %>
+  
+      <%= link_to edit_medium_path(medium, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to medium, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

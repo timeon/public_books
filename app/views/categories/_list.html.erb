@@ -1,0 +1,14 @@
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <% if false %>
+	    <%= render partial: '/categories/header' %>
+      <% end %>
+      
+	    <tbody>
+	      <% categories.each do |category| %>
+	        <%= render partial: '/categories/row', locals: {category: category} %>
+	      <% end %>
+	    </tbody>
+	  </table>
+	</div>

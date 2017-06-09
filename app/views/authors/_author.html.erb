@@ -1,0 +1,29 @@
+  <tr>
+    <td class="author_name"><b><%= link_to author, author %></b></td>
+
+    <td class="author_name"><%= author.name %></td>
+    <td class="author_english_name"><%= author.english_name %></td>
+    <td class="author_description"><%= author.description %></td>
+    <td class="author_photo"><%= author.photo %></td>
+
+    <td>    
+    <% if false %>
+      <%= link_to author, :class => 'show_button', :title => "details" do %>
+        <i class="fa fa-info fa-lg"></i> 
+      <% end %>
+  
+      <%= render partial: '/authors/preview_modal', locals: {author: author} %>
+
+      <%= render partial: '/authors/edit_modal', locals: {author: author} %>
+    <% end %>
+  
+      <%= link_to edit_author_path(author, ref:request.path), :class => 'edit_button', :title => "edit" do %>
+       <i class="fa fa-pencil fa-lg"></i>
+      <% end %>
+
+      <%= link_to author, method: :delete, data: { confirm: 'Are you sure?' } , :class => 'delete_button', :title=>"Delete" do %>
+        <i class="fa fa-trash fa-lg"></i>
+      <% end %>
+    </td>
+  </tr>
+

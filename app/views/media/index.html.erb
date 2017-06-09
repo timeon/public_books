@@ -1,0 +1,25 @@
+<%= render partial:  '/media/list', 
+            locals:   { media:    @media, 
+                        as:              'medium', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       false, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+
+<% if false %>
+
+<%= render partial:  '/media/table', 
+            locals:   { media:    @media, 
+                        as:              'medium', 
+                        owner:            nil, 
+                        show_when_empty:  true, 
+                        show_title:       true, 
+                        show_new:         true, 
+                        show_pages:       true
+                       } %>
+
+  <%= render partial: '/media/deck', collection: @media, as: :medium %>
+<% end %>

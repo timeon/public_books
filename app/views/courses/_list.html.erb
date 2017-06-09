@@ -1,0 +1,12 @@
+
+	<div class="table-responsive">
+	  <table class="table table-hover table-striped">
+	    <% if false %>
+	    <%= render partial: '/courses/header' %>
+      <% end %>
+      
+	    <tbody>
+        <%= render partial: '/courses/summary', collection: courses, as: :course, locals:{owner:owner} %>
+	    </tbody>
+	  </table>
+	</div>

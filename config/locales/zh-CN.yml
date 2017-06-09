@@ -1,0 +1,127 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+zh-CN:
+  hello: "你好"
+  fucai: "福彩"
+  fucai-version: "中福彩专用" 
+  ticai-version: "中体彩专用" 
+  www-version:   "" 
+  dev-version:   "开发版"
+  sign-in:       "登录"
+  sign-out:      "退出"
+  join-in:       "加盟"
+  sign-up:       "注册"
+  invite:        "邀请"
+  app:          "应用"
+  sdk:          "开发包"
+  installation: "安装统计"
+  device:       "设备"
+  province:     "省市统计"
+  publisher:    "发布者"
+  category:     "类别"
+  color:        "颜色"
+  policy:       "策略"
+  notice:       "公告"
+  user:         "用户"
+  setting:      "设置"
+  settings:     "设置"
+  installer:    "安装包" 
+  keyword:      "关键词" 
+  operating_system :      "操作系统" 
+  operatingsystem :      "操作系统" 
+  advanced:     "高级"
+  off:          "关闭"
+  edit:         "编辑"
+  update:       "修改"
+  create:       "创建"
+  destroy:      "删除"
+  welcome:      "欢迎" 
+  back:         "返回"
+  product:      "万维星辰移动应用管理和安全助手及服务器平台"
+  short-name:   "万维助手"
+  xd-helper:    "万维助手"
+  download-xd:  "下载万维助手"
+  slogan:       "移动互联之盾"
+  feature-1:    "快速识别可疑应用。"
+  feature-2:    "推荐官方认证的合法可信应用。"
+  feature-3:    "保护合法可信应用不被恶意破坏。"
+  feature-4:    "防止个人信息被非法应用窃取。"
+  feature-5:    "提供官方权威信息发布通道。"
+  serving-provinces:    "服务省份"
+  uploading-device: "上载设备"
+  uploading-user: "上载用户"
+  black:        "黑"
+  white:        "白"
+  gray:         "灰"
+  list:         "名单"
+  all:          "全部"
+  search-apps:  "搜索应用"
+  var:          "参数"
+  value:        "值"
+  audit:        "日志"
+  display_name: "姓名"
+  role:         "职责"
+  phone:        "电话"
+  email:        "邮箱"
+
+  resend-confirmation-instructions:   "重新发送确认帐号的电子邮件" 
+  confirm-my-account:                 "确认我的帐号"
+  confirm-email-through-link-below:	  "请通过以下链接确认您帐号的电子邮件："
+  request-link-change-password:	      "有人请求链接修改您的密码。请通过以下链接修改："
+  change-password:	                  "修改密码"
+  account-locked-for-sign-in-attempts: "您多次尝试登录帐号都没有成功,帐号已被锁定"
+  click-link-unlock-your-account:     "点击以下链接可以解锁您的帐号:"
+  unlock-my-account:                  "解锁我的帐号"
+  no-request-please-ignore-email:     "如果你没有请求过,请忽略这封电子邮件。"
+  access-link-to-create-new-password: "可以通过点击上面的链接修改密码。"
+  new-password:	                      "新密码"
+  confirm-new-password:               "确认新密码"
+  forgot-your-password:               "已忘记您的密码？"
+  send-reset－password－instructions:  "请发送重新设置密码的电子邮件"
+  waiting-confirmation:               "现在等待确认："
+  leave-blank-if-no-change:           "（如果不想改变密码，此项可以不填）"
+  cancel-my-account:                  "取消帐号"
+  unhappy:                            "不满意"
+  are-you-sure:                       "您确认吗？"
+  minimum:                            "最少"
+  characters:                         "个字符"
+  forgot-your-password:               "忘记了您的密码？"
+  not-receive-confirmation-instructions: "还没有收到确认的电子邮件？"
+  not-receive-unlock-instructions:    "还没有收到解锁的电子邮件？"
+  resend-unlock-instructions:         "重新发送解锁的电子邮件"
+  no-permission:                      "抱歉，您无权访问此页"
+  need-to-sign-in:                    "抱歉，您需要先登录"
+
+  
+  will_paginate:
+    previous_label: "上一页"
+    next_label: "下一页"
+
+  settings:
+    index: 
+      save_all: "全部保存"
+    errors:
+      default_missing: "没有默认值"      
+      
+    attributes:
+      gacode:
+        name: "GA Code"

@@ -1,0 +1,9 @@
+  <thead>
+    <tr>
+      <th colspan="1"></th>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+      <th><%= attribute.human_name %></th>
+<% end -%>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
